@@ -20,6 +20,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Helps with OAuth2 cookie handling.
@@ -293,6 +295,9 @@ public class OAuth2CookieHelper {
             domain = domain.substring(4);
         }
         //strip off subdomains, leaving the top level domain only
+        if( checkIp(domain )){
+            return null;
+        }
         InternetDomainName domainName = InternetDomainName.from(domain);
         if (domainName.isUnderPublicSuffix() && !domainName.isTopPrivateDomain()) {
             //preserve leading dot
@@ -302,6 +307,16 @@ public class OAuth2CookieHelper {
         return null;
     }
 
+    private boolean checkIp(String ipStr){
+        String ip = "^(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|[1-9])\\."
+            +"(00?\\d|1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|\\d)\\."
+            +"(00?\\d|1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|\\d)\\."
+            +"(00?\\d|1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|\\d)$";
+
+        Pattern pattern = Pattern.compile(ip);
+        Matcher matcher = pattern.matcher(ipStr);
+        return matcher.matches();//验证结果返回ture或者false
+    }
     /**
      * Strip our token cookies from the array.
      *

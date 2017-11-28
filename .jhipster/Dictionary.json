@@ -1,0 +1,120 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "dictionaryClassify",
+            "otherEntityName": "dictionaryClassify",
+            "otherEntityRelationshipName": "dictionary"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "dictName",
+            "javadoc": "字典名称",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 64
+        },
+        {
+            "fieldName": "dictCode",
+            "javadoc": "字典代码",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 20
+        },
+        {
+            "fieldName": "startTime",
+            "javadoc": "开始时间",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "endTime",
+            "javadoc": "结束时间",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "seqNo",
+            "javadoc": "序号",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "attr1",
+            "javadoc": "预留字段",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 200
+        },
+        {
+            "fieldName": "attr2",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 200
+        },
+        {
+            "fieldName": "attr3",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 200
+        },
+        {
+            "fieldName": "attr4",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 200
+        },
+        {
+            "fieldName": "attr5",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 200
+        },
+        {
+            "fieldName": "attr6",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "attr7",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "attr8",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "attr9",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "attr10",
+            "fieldType": "Integer"
+        }
+    ],
+    "changelogDate": "20171120014200",
+    "javadoc": "字典表\n@author Capejor",
+    "entityTableName": "dictionary",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "microserviceName": "EmCloudDict"
+}

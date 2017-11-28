@@ -1,0 +1,93 @@
+<div>
+    <h2>
+        <span jhiTranslate="emCloudWebApp.dictionary.home.title">Dictionaries</span>
+        <button class="btn btn-primary float-right jh-create-entity create-dictionary" [routerLink]="['/', { outlets: { popup: ['dictionary-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="emCloudWebApp.dictionary.home.createLabel">
+            Create new Dictionary
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="dictionaries">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="dictName"><span jhiTranslate="emCloudWebApp.dictionary.dictName">Dict Name</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="dictCode"><span jhiTranslate="emCloudWebApp.dictionary.dictCode">Dict Code</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="startTime"><span jhiTranslate="emCloudWebApp.dictionary.startTime">Start Time</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="endTime"><span jhiTranslate="emCloudWebApp.dictionary.endTime">End Time</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="seqNo"><span jhiTranslate="emCloudWebApp.dictionary.seqNo">Seq No</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="attr1"><span jhiTranslate="emCloudWebApp.dictionary.attr1">Attr 1</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="attr2"><span jhiTranslate="emCloudWebApp.dictionary.attr2">Attr 2</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="attr3"><span jhiTranslate="emCloudWebApp.dictionary.attr3">Attr 3</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="attr4"><span jhiTranslate="emCloudWebApp.dictionary.attr4">Attr 4</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="attr5"><span jhiTranslate="emCloudWebApp.dictionary.attr5">Attr 5</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="attr6"><span jhiTranslate="emCloudWebApp.dictionary.attr6">Attr 6</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="attr7"><span jhiTranslate="emCloudWebApp.dictionary.attr7">Attr 7</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="attr8"><span jhiTranslate="emCloudWebApp.dictionary.attr8">Attr 8</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="attr9"><span jhiTranslate="emCloudWebApp.dictionary.attr9">Attr 9</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="attr10"><span jhiTranslate="emCloudWebApp.dictionary.attr10">Attr 10</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let dictionary of dictionaries ;trackBy: trackId">
+                <td><a [routerLink]="['../dictionary', dictionary.id ]">{{dictionary.id}}</a></td>
+                <td>{{dictionary.dictName}}</td>
+                <td>{{dictionary.dictCode}}</td>
+                <td>{{dictionary.startTime | date:'medium'}}</td>
+                <td>{{dictionary.endTime | date:'medium'}}</td>
+                <td>{{dictionary.seqNo}}</td>
+                <td>{{dictionary.attr1}}</td>
+                <td>{{dictionary.attr2}}</td>
+                <td>{{dictionary.attr3}}</td>
+                <td>{{dictionary.attr4}}</td>
+                <td>{{dictionary.attr5}}</td>
+                <td>{{dictionary.attr6}}</td>
+                <td>{{dictionary.attr7}}</td>
+                <td>{{dictionary.attr8}}</td>
+                <td>{{dictionary.attr9}}</td>
+                <td>{{dictionary.attr10}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../dictionary', dictionary.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'dictionary/'+ dictionary.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'dictionary/'+ dictionary.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+        <!-- Pager is not implemented yet, so this is normal pagination instead -->
+        <div *ngIf="dictionaries && dictionaries.length">
+            <div class="row justify-content-center">
+                <jhi-item-count [page]="page" [total]="queryCount" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+            </div>
+            <div class="row justify-content-center">
+                <ngb-pagination [collectionSize]="totalItems" [maxSize]="5" [(page)]="page"  (pageChange)="loadPage(page)"></ngb-pagination>
+            </div>
+        </div>
+</div>

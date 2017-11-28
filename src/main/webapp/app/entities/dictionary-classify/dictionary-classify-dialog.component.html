@@ -1,0 +1,115 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myDictionaryClassifyLabel" jhiTranslate="emCloudWebApp.dictionaryClassify.home.createOrEditLabel">Create or edit a Dictionary Classify</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!dictionaryClassify.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="dictionaryClassify.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.dictionaryClassify.dictCode" for="field_dictCode">Dict Code</label>
+            <input type="text" class="form-control" name="dictCode" id="field_dictCode"
+                [(ngModel)]="dictionaryClassify.dictCode" maxlength="20" />
+            <div [hidden]="!(editForm.controls.dictCode?.dirty && editForm.controls.dictCode?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.dictCode?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 20 }">
+                   This field cannot be longer than 20 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.dictionaryClassify.dictClassifyCode" for="field_dictClassifyCode">Dict Classify Code</label>
+            <input type="number" class="form-control" name="dictClassifyCode" id="field_dictClassifyCode"
+                [(ngModel)]="dictionaryClassify.dictClassifyCode" required />
+            <div [hidden]="!(editForm.controls.dictClassifyCode?.dirty && editForm.controls.dictClassifyCode?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.dictClassifyCode?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.dictClassifyCode?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.dictionaryClassify.dictClassifyValue" for="field_dictClassifyValue">Dict Classify Value</label>
+            <input type="text" class="form-control" name="dictClassifyValue" id="field_dictClassifyValue"
+                [(ngModel)]="dictionaryClassify.dictClassifyValue" required maxlength="100" />
+            <div [hidden]="!(editForm.controls.dictClassifyValue?.dirty && editForm.controls.dictClassifyValue?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.dictClassifyValue?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.dictClassifyValue?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 100 }">
+                   This field cannot be longer than 100 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.dictionaryClassify.parentClassifyCode" for="field_parentClassifyCode">Parent Classify Code</label>
+            <input type="number" class="form-control" name="parentClassifyCode" id="field_parentClassifyCode"
+                [(ngModel)]="dictionaryClassify.parentClassifyCode"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.dictionaryClassify.seqNo" for="field_seqNo">Seq No</label>
+            <input type="number" class="form-control" name="seqNo" id="field_seqNo"
+                [(ngModel)]="dictionaryClassify.seqNo" required />
+            <div [hidden]="!(editForm.controls.seqNo?.dirty && editForm.controls.seqNo?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.seqNo?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.seqNo?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.dictionaryClassify.enable" for="field_enable">Enable</label>
+            <input type="checkbox" class="form-control" name="enable" id="field_enable"
+                [(ngModel)]="dictionaryClassify.enable"  />
+            <div [hidden]="!(editForm.controls.enable?.dirty && editForm.controls.enable?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.enable?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.dictionaryClassify.remark" for="field_remark">Remark</label>
+            <input type="text" class="form-control" name="remark" id="field_remark"
+                [(ngModel)]="dictionaryClassify.remark" maxlength="200" />
+            <div [hidden]="!(editForm.controls.remark?.dirty && editForm.controls.remark?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.remark?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 200 }">
+                   This field cannot be longer than 200 characters.
+                </small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.dictionaryClassify.dictionary" for="field_dictionary">Dictionary</label>
+            <select class="form-control" id="field_dictionary" name="dictionary" [(ngModel)]="dictionaryClassify.dictionary" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="dictionaryOption.id === dictionaryClassify.dictionary?.id ? dictionaryClassify.dictionary : dictionaryOption" *ngFor="let dictionaryOption of dictionaries; trackBy: trackDictionaryById">{{dictionaryOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

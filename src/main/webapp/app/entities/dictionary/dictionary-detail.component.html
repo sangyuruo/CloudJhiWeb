@@ -1,0 +1,81 @@
+
+<div *ngIf="dictionary">
+    <h2><span jhiTranslate="emCloudWebApp.dictionary.detail.title">Dictionary</span> {{dictionary.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="emCloudWebApp.dictionary.dictName">Dict Name</span></dt>
+        <dd>
+            <span>{{dictionary.dictName}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.dictionary.dictCode">Dict Code</span></dt>
+        <dd>
+            <span>{{dictionary.dictCode}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.dictionary.startTime">Start Time</span></dt>
+        <dd>
+            <span>{{dictionary.startTime | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.dictionary.endTime">End Time</span></dt>
+        <dd>
+            <span>{{dictionary.endTime | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.dictionary.seqNo">Seq No</span></dt>
+        <dd>
+            <span>{{dictionary.seqNo}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.dictionary.attr1">Attr 1</span></dt>
+        <dd>
+            <span>{{dictionary.attr1}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.dictionary.attr2">Attr 2</span></dt>
+        <dd>
+            <span>{{dictionary.attr2}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.dictionary.attr3">Attr 3</span></dt>
+        <dd>
+            <span>{{dictionary.attr3}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.dictionary.attr4">Attr 4</span></dt>
+        <dd>
+            <span>{{dictionary.attr4}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.dictionary.attr5">Attr 5</span></dt>
+        <dd>
+            <span>{{dictionary.attr5}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.dictionary.attr6">Attr 6</span></dt>
+        <dd>
+            <span>{{dictionary.attr6}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.dictionary.attr7">Attr 7</span></dt>
+        <dd>
+            <span>{{dictionary.attr7}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.dictionary.attr8">Attr 8</span></dt>
+        <dd>
+            <span>{{dictionary.attr8}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.dictionary.attr9">Attr 9</span></dt>
+        <dd>
+            <span>{{dictionary.attr9}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.dictionary.attr10">Attr 10</span></dt>
+        <dd>
+            <span>{{dictionary.attr10}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'dictionary/'+ dictionary.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

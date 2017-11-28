@@ -1,0 +1,78 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "dictionary",
+            "otherEntityName": "dictionary",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "dictCode",
+            "javadoc": "字典代码",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 20
+        },
+        {
+            "fieldName": "dictClassifyCode",
+            "javadoc": "分类代码",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "dictClassifyValue",
+            "javadoc": "分类值",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 100
+        },
+        {
+            "fieldName": "parentClassifyCode",
+            "javadoc": "父分类代码",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "seqNo",
+            "javadoc": "序号",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "enable",
+            "javadoc": "是否有效",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "remark",
+            "javadoc": "备注",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 200
+        }
+    ],
+    "changelogDate": "20171120014201",
+    "javadoc": "字典分类表\n@author Capejor",
+    "entityTableName": "dictionary_classify",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "microserviceName": "EmCloudDict"
+}

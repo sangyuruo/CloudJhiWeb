@@ -1,0 +1,164 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myDictionaryLabel" jhiTranslate="emCloudWebApp.dictionary.home.createOrEditLabel">Create or edit a Dictionary</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!dictionary.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="dictionary.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.dictionary.dictName" for="field_dictName">Dict Name</label>
+            <input type="text" class="form-control" name="dictName" id="field_dictName"
+                [(ngModel)]="dictionary.dictName" required maxlength="64" />
+            <div [hidden]="!(editForm.controls.dictName?.dirty && editForm.controls.dictName?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.dictName?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.dictName?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 64 }">
+                   This field cannot be longer than 64 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.dictionary.dictCode" for="field_dictCode">Dict Code</label>
+            <input type="text" class="form-control" name="dictCode" id="field_dictCode"
+                [(ngModel)]="dictionary.dictCode" required maxlength="20" />
+            <div [hidden]="!(editForm.controls.dictCode?.dirty && editForm.controls.dictCode?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.dictCode?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.dictCode?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 20 }">
+                   This field cannot be longer than 20 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.dictionary.startTime" for="field_startTime">Start Time</label>
+            <div class="d-flex">
+                <input id="field_startTime" type="datetime-local" class="form-control" name="startTime" [(ngModel)]="dictionary.startTime"
+                  />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.dictionary.endTime" for="field_endTime">End Time</label>
+            <div class="d-flex">
+                <input id="field_endTime" type="datetime-local" class="form-control" name="endTime" [(ngModel)]="dictionary.endTime"
+                  />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.dictionary.seqNo" for="field_seqNo">Seq No</label>
+            <input type="number" class="form-control" name="seqNo" id="field_seqNo"
+                [(ngModel)]="dictionary.seqNo" required />
+            <div [hidden]="!(editForm.controls.seqNo?.dirty && editForm.controls.seqNo?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.seqNo?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.seqNo?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.dictionary.attr1" for="field_attr1">Attr 1</label>
+            <input type="text" class="form-control" name="attr1" id="field_attr1"
+                [(ngModel)]="dictionary.attr1" maxlength="200" />
+            <div [hidden]="!(editForm.controls.attr1?.dirty && editForm.controls.attr1?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.attr1?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 200 }">
+                   This field cannot be longer than 200 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.dictionary.attr2" for="field_attr2">Attr 2</label>
+            <input type="text" class="form-control" name="attr2" id="field_attr2"
+                [(ngModel)]="dictionary.attr2" maxlength="200" />
+            <div [hidden]="!(editForm.controls.attr2?.dirty && editForm.controls.attr2?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.attr2?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 200 }">
+                   This field cannot be longer than 200 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.dictionary.attr3" for="field_attr3">Attr 3</label>
+            <input type="text" class="form-control" name="attr3" id="field_attr3"
+                [(ngModel)]="dictionary.attr3" maxlength="200" />
+            <div [hidden]="!(editForm.controls.attr3?.dirty && editForm.controls.attr3?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.attr3?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 200 }">
+                   This field cannot be longer than 200 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.dictionary.attr4" for="field_attr4">Attr 4</label>
+            <input type="text" class="form-control" name="attr4" id="field_attr4"
+                [(ngModel)]="dictionary.attr4" maxlength="200" />
+            <div [hidden]="!(editForm.controls.attr4?.dirty && editForm.controls.attr4?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.attr4?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 200 }">
+                   This field cannot be longer than 200 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.dictionary.attr5" for="field_attr5">Attr 5</label>
+            <input type="text" class="form-control" name="attr5" id="field_attr5"
+                [(ngModel)]="dictionary.attr5" maxlength="200" />
+            <div [hidden]="!(editForm.controls.attr5?.dirty && editForm.controls.attr5?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.attr5?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 200 }">
+                   This field cannot be longer than 200 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.dictionary.attr6" for="field_attr6">Attr 6</label>
+            <input type="number" class="form-control" name="attr6" id="field_attr6"
+                [(ngModel)]="dictionary.attr6"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.dictionary.attr7" for="field_attr7">Attr 7</label>
+            <input type="number" class="form-control" name="attr7" id="field_attr7"
+                [(ngModel)]="dictionary.attr7"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.dictionary.attr8" for="field_attr8">Attr 8</label>
+            <input type="number" class="form-control" name="attr8" id="field_attr8"
+                [(ngModel)]="dictionary.attr8"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.dictionary.attr9" for="field_attr9">Attr 9</label>
+            <input type="number" class="form-control" name="attr9" id="field_attr9"
+                [(ngModel)]="dictionary.attr9"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.dictionary.attr10" for="field_attr10">Attr 10</label>
+            <input type="number" class="form-control" name="attr10" id="field_attr10"
+                [(ngModel)]="dictionary.attr10"  />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

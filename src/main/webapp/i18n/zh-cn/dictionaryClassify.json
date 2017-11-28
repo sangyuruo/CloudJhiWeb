@@ -1,0 +1,32 @@
+{
+    "emCloudWebApp": {
+        "dictionaryClassify" : {
+            "home": {
+                "title": "Dictionary Classifies",
+                "createLabel": "创建新 Dictionary Classify",
+                "createOrEditLabel": "创建或编辑 Dictionary Classify"
+            },
+            "delete": {
+                "question": "你确定要删除 Dictionary Classify {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Dictionary Classify"
+            },
+            "dictCode": "Dict Code",
+            "dictClassifyCode": "Dict Classify Code",
+            "dictClassifyValue": "Dict Classify Value",
+            "parentClassifyCode": "Parent Classify Code",
+            "seqNo": "Seq No",
+            "enable": "Enable",
+            "remark": "Remark",
+            "dictionary": "Dictionary"
+        }
+    },
+    "emCloudDictApp": {
+        "dictionaryClassify" : {
+            "created": "Dictionary Classify {{ param }} 创建成功",
+            "updated": "Dictionary Classify {{ param }} 更新成功",
+            "deleted": "Dictionary Classify {{ param }} 删除成功"
+        }
+    }
+}

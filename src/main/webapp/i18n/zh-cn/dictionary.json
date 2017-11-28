@@ -1,0 +1,40 @@
+{
+    "emCloudWebApp": {
+        "dictionary" : {
+            "home": {
+                "title": "Dictionaries",
+                "createLabel": "创建新 Dictionary",
+                "createOrEditLabel": "创建或编辑 Dictionary"
+            },
+            "delete": {
+                "question": "你确定要删除 Dictionary {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Dictionary"
+            },
+            "dictName": "Dict Name",
+            "dictCode": "Dict Code",
+            "startTime": "Start Time",
+            "endTime": "End Time",
+            "seqNo": "Seq No",
+            "attr1": "Attr 1",
+            "attr2": "Attr 2",
+            "attr3": "Attr 3",
+            "attr4": "Attr 4",
+            "attr5": "Attr 5",
+            "attr6": "Attr 6",
+            "attr7": "Attr 7",
+            "attr8": "Attr 8",
+            "attr9": "Attr 9",
+            "attr10": "Attr 10",
+            "dictionaryClassify": "Dictionary Classify"
+        }
+    },
+    "emCloudDictApp": {
+        "dictionary" : {
+            "created": "Dictionary {{ param }} 创建成功",
+            "updated": "Dictionary {{ param }} 更新成功",
+            "deleted": "Dictionary {{ param }} 删除成功"
+        }
+    }
+}

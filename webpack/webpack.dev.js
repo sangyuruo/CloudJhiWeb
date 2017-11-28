@@ -18,6 +18,7 @@ module.exports = webpackMerge(commonConfig({ env: ENV }), {
             context: [
                 '/emclouduaa',
                 '/emcloudou',
+                '/emclouddict',
                 /* jhipster-needle-add-entity-to-webpack - JHipster will add entity api paths here */
                 '/api',
                 '/management',

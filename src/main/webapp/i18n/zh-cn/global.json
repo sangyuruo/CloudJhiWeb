@@ -9,6 +9,8 @@
                 "main": "数据",
                 "company": "Company",
                 "organization": "Organization",
+                "dictionary": "Dictionary",
+                "dictionaryClassify": "Dictionary Classify",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

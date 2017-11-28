@@ -2,7 +2,8 @@
   "generator-jhipster": {
     "promptValues": {
       "packageName": "com.emcloud.web",
-      "nativeLanguage": "zh-cn"
+      "nativeLanguage": "zh-cn",
+      "microservicePath": "../EmCloudOU"
     },
     "jhipsterVersion": "4.10.2",
     "baseName": "EmCloudWeb",

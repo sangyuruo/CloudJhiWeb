@@ -1,0 +1,99 @@
+
+<div *ngIf="organization">
+    <h2><span jhiTranslate="emCloudWebApp.organization.detail.title">Organization</span> {{organization.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="emCloudWebApp.organization.orgCode">Org Code</span></dt>
+        <dd>
+            <span>{{organization.orgCode}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.organization.orgName">Org Name</span></dt>
+        <dd>
+            <span>{{organization.orgName}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.organization.orgType">Org Type</span></dt>
+        <dd>
+            <span>{{organization.orgType}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.organization.companyCode">Company Code</span></dt>
+        <dd>
+            <span>{{organization.companyCode}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.organization.parentCode">Parent Code</span></dt>
+        <dd>
+            <span>{{organization.parentCode}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.organization.telephone">Telephone</span></dt>
+        <dd>
+            <span>{{organization.telephone}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.organization.companyName">Company Name</span></dt>
+        <dd>
+            <span>{{organization.companyName}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.organization.parentOrgName">Parent Org Name</span></dt>
+        <dd>
+            <span>{{organization.parentOrgName}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.organization.addressName">Address Name</span></dt>
+        <dd>
+            <span>{{organization.addressName}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.organization.addressCode">Address Code</span></dt>
+        <dd>
+            <span>{{organization.addressCode}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.organization.remark">Remark</span></dt>
+        <dd>
+            <span>{{organization.remark}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.organization.seqNo">Seq No</span></dt>
+        <dd>
+            <span>{{organization.seqNo}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.organization.attachsNum">Attachs Num</span></dt>
+        <dd>
+            <span>{{organization.attachsNum}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.organization.enable">Enable</span></dt>
+        <dd>
+            <span>{{organization.enable}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.organization.createdBy">Created By</span></dt>
+        <dd>
+            <span>{{organization.createdBy}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.organization.createTime">Create Time</span></dt>
+        <dd>
+            <span>{{organization.createTime | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.organization.updatedBy">Updated By</span></dt>
+        <dd>
+            <span>{{organization.updatedBy}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.organization.updateTime">Update Time</span></dt>
+        <dd>
+            <span>{{organization.updateTime | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.organization.company">Company</span></dt>
+        <dd>
+            <div *ngIf="organization.company">
+                <a [routerLink]="['/company', organization.company?.id]">{{organization.company?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'organization/'+ organization.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,43 @@
+{
+    "emCloudWebApp": {
+        "organization" : {
+            "home": {
+                "title": "Organizations",
+                "createLabel": "创建新 Organization",
+                "createOrEditLabel": "创建或编辑 Organization"
+            },
+            "delete": {
+                "question": "你确定要删除 Organization {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Organization"
+            },
+            "orgCode": "Org Code",
+            "orgName": "Org Name",
+            "orgType": "Org Type",
+            "companyCode": "Company Code",
+            "parentCode": "Parent Code",
+            "telephone": "Telephone",
+            "companyName": "Company Name",
+            "parentOrgName": "Parent Org Name",
+            "addressName": "Address Name",
+            "addressCode": "Address Code",
+            "remark": "Remark",
+            "seqNo": "Seq No",
+            "attachsNum": "Attachs Num",
+            "enable": "Enable",
+            "createdBy": "Created By",
+            "createTime": "Create Time",
+            "updatedBy": "Updated By",
+            "updateTime": "Update Time",
+            "company": "Company"
+        }
+    },
+    "emCloudOuApp": {
+        "organization" : {
+            "created": "Organization {{ param }} 创建成功",
+            "updated": "Organization {{ param }} 更新成功",
+            "deleted": "Organization {{ param }} 删除成功"
+        }
+    }
+}

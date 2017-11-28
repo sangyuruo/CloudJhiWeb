@@ -1,0 +1,105 @@
+<div>
+    <h2>
+        <span jhiTranslate="emCloudWebApp.organization.home.title">Organizations</span>
+        <button class="btn btn-primary float-right jh-create-entity create-organization" [routerLink]="['/', { outlets: { popup: ['organization-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="emCloudWebApp.organization.home.createLabel">
+            Create new Organization
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="organizations">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="orgCode"><span jhiTranslate="emCloudWebApp.organization.orgCode">Org Code</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="orgName"><span jhiTranslate="emCloudWebApp.organization.orgName">Org Name</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="orgType"><span jhiTranslate="emCloudWebApp.organization.orgType">Org Type</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="companyCode"><span jhiTranslate="emCloudWebApp.organization.companyCode">Company Code</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="parentCode"><span jhiTranslate="emCloudWebApp.organization.parentCode">Parent Code</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="telephone"><span jhiTranslate="emCloudWebApp.organization.telephone">Telephone</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="companyName"><span jhiTranslate="emCloudWebApp.organization.companyName">Company Name</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="parentOrgName"><span jhiTranslate="emCloudWebApp.organization.parentOrgName">Parent Org Name</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="addressName"><span jhiTranslate="emCloudWebApp.organization.addressName">Address Name</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="addressCode"><span jhiTranslate="emCloudWebApp.organization.addressCode">Address Code</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="remark"><span jhiTranslate="emCloudWebApp.organization.remark">Remark</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="seqNo"><span jhiTranslate="emCloudWebApp.organization.seqNo">Seq No</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="attachsNum"><span jhiTranslate="emCloudWebApp.organization.attachsNum">Attachs Num</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="enable"><span jhiTranslate="emCloudWebApp.organization.enable">Enable</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="createdBy"><span jhiTranslate="emCloudWebApp.organization.createdBy">Created By</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="createTime"><span jhiTranslate="emCloudWebApp.organization.createTime">Create Time</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="updatedBy"><span jhiTranslate="emCloudWebApp.organization.updatedBy">Updated By</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="updateTime"><span jhiTranslate="emCloudWebApp.organization.updateTime">Update Time</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="company.id"><span jhiTranslate="emCloudWebApp.organization.company">Company</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let organization of organizations ;trackBy: trackId">
+                <td><a [routerLink]="['../organization', organization.id ]">{{organization.id}}</a></td>
+                <td>{{organization.orgCode}}</td>
+                <td>{{organization.orgName}}</td>
+                <td>{{organization.orgType}}</td>
+                <td>{{organization.companyCode}}</td>
+                <td>{{organization.parentCode}}</td>
+                <td>{{organization.telephone}}</td>
+                <td>{{organization.companyName}}</td>
+                <td>{{organization.parentOrgName}}</td>
+                <td>{{organization.addressName}}</td>
+                <td>{{organization.addressCode}}</td>
+                <td>{{organization.remark}}</td>
+                <td>{{organization.seqNo}}</td>
+                <td>{{organization.attachsNum}}</td>
+                <td>{{organization.enable}}</td>
+                <td>{{organization.createdBy}}</td>
+                <td>{{organization.createTime | date:'medium'}}</td>
+                <td>{{organization.updatedBy}}</td>
+                <td>{{organization.updateTime | date:'medium'}}</td>
+                <td>
+                    <div *ngIf="organization.company">
+                        <a [routerLink]="['../company', organization.company?.id ]" >{{organization.company?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../organization', organization.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'organization/'+ organization.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'organization/'+ organization.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+        <!-- Pager is not implemented yet, so this is normal pagination instead -->
+        <div *ngIf="organizations && organizations.length">
+            <div class="row justify-content-center">
+                <jhi-item-count [page]="page" [total]="queryCount" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+            </div>
+            <div class="row justify-content-center">
+                <ngb-pagination [collectionSize]="totalItems" [maxSize]="5" [(page)]="page"  (pageChange)="loadPage(page)"></ngb-pagination>
+            </div>
+        </div>
+</div>

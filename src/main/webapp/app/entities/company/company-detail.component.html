@@ -1,0 +1,101 @@
+
+<div *ngIf="company">
+    <h2><span jhiTranslate="emCloudWebApp.company.detail.title">Company</span> {{company.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="emCloudWebApp.company.companyLongName">Company Long Name</span></dt>
+        <dd>
+            <span>{{company.companyLongName}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.company.companyName">Company Name</span></dt>
+        <dd>
+            <span>{{company.companyName}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.company.parentCompanyName">Parent Company Name</span></dt>
+        <dd>
+            <span>{{company.parentCompanyName}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.company.companyCode">Company Code</span></dt>
+        <dd>
+            <span>{{company.companyCode}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.company.countryCode">Country Code</span></dt>
+        <dd>
+            <span>{{company.countryCode}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.company.cityCode">City Code</span></dt>
+        <dd>
+            <span>{{company.cityCode}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.company.addressCode">Address Code</span></dt>
+        <dd>
+            <span>{{company.addressCode}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.company.addressName">Address Name</span></dt>
+        <dd>
+            <span>{{company.addressName}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.company.telephone">Telephone</span></dt>
+        <dd>
+            <span>{{company.telephone}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.company.legalPerson">Legal Person</span></dt>
+        <dd>
+            <span>{{company.legalPerson}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.company.parentCompanyCode">Parent Company Code</span></dt>
+        <dd>
+            <span>{{company.parentCompanyCode}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.company.levelId">Level Id</span></dt>
+        <dd>
+            <span>{{company.levelId}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.company.remark">Remark</span></dt>
+        <dd>
+            <span>{{company.remark}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.company.attachsNum">Attachs Num</span></dt>
+        <dd>
+            <span>{{company.attachsNum}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.company.seqNo">Seq No</span></dt>
+        <dd>
+            <span>{{company.seqNo}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.company.enable">Enable</span></dt>
+        <dd>
+            <span>{{company.enable}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.company.createdBy">Created By</span></dt>
+        <dd>
+            <span>{{company.createdBy}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.company.createTime">Create Time</span></dt>
+        <dd>
+            <span>{{company.createTime | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.company.updatedBy">Updated By</span></dt>
+        <dd>
+            <span>{{company.updatedBy}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.company.updateTime">Update Time</span></dt>
+        <dd>
+            <span>{{company.updateTime | date:'medium'}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'company/'+ company.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

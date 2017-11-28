@@ -1,0 +1,44 @@
+{
+    "emCloudWebApp": {
+        "company" : {
+            "home": {
+                "title": "Companies",
+                "createLabel": "创建新 Company",
+                "createOrEditLabel": "创建或编辑 Company"
+            },
+            "delete": {
+                "question": "你确定要删除 Company {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Company"
+            },
+            "companyLongName": "Company Long Name",
+            "companyName": "Company Name",
+            "parentCompanyName": "Parent Company Name",
+            "companyCode": "Company Code",
+            "countryCode": "Country Code",
+            "cityCode": "City Code",
+            "addressCode": "Address Code",
+            "addressName": "Address Name",
+            "telephone": "Telephone",
+            "legalPerson": "Legal Person",
+            "parentCompanyCode": "Parent Company Code",
+            "levelId": "Level Id",
+            "remark": "Remark",
+            "attachsNum": "Attachs Num",
+            "seqNo": "Seq No",
+            "enable": "Enable",
+            "createdBy": "Created By",
+            "createTime": "Create Time",
+            "updatedBy": "Updated By",
+            "updateTime": "Update Time"
+        }
+    },
+    "emCloudOuApp": {
+        "company" : {
+            "created": "Company {{ param }} 创建成功",
+            "updated": "Company {{ param }} 更新成功",
+            "deleted": "Company {{ param }} 删除成功"
+        }
+    }
+}

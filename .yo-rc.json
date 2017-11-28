@@ -3,7 +3,7 @@
     "promptValues": {
       "packageName": "com.emcloud.web",
       "nativeLanguage": "zh-cn",
-      "microservicePath": "../EmCloudNfs"
+      "microservicePath": "../EmCloudMi"
     },
     "jhipsterVersion": "4.10.2",
     "baseName": "EmCloudWeb",

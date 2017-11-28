@@ -1,0 +1,69 @@
+
+<div *ngIf="meterCategoryInfo">
+    <h2><span jhiTranslate="emCloudWebApp.meterCategoryInfo.detail.title">Meter Category Info</span> {{meterCategoryInfo.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="emCloudWebApp.meterCategoryInfo.meterName">Meter Name</span></dt>
+        <dd>
+            <span>{{meterCategoryInfo.meterName}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.meterCategoryInfo.meterType">Meter Type</span></dt>
+        <dd>
+            <span>{{meterCategoryInfo.meterType}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.meterCategoryInfo.meterFactory">Meter Factory</span></dt>
+        <dd>
+            <span>{{meterCategoryInfo.meterFactory}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.meterCategoryInfo.tel">Tel</span></dt>
+        <dd>
+            <span>{{meterCategoryInfo.tel}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.meterCategoryInfo.startOffset">Start Offset</span></dt>
+        <dd>
+            <span>{{meterCategoryInfo.startOffset}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.meterCategoryInfo.numberOfRegisters">Number Of Registers</span></dt>
+        <dd>
+            <span>{{meterCategoryInfo.numberOfRegisters}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.meterCategoryInfo.controlAddress">Control Address</span></dt>
+        <dd>
+            <span>{{meterCategoryInfo.controlAddress}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.meterCategoryInfo.createdBy">Created By</span></dt>
+        <dd>
+            <span>{{meterCategoryInfo.createdBy}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.meterCategoryInfo.createTime">Create Time</span></dt>
+        <dd>
+            <span>{{meterCategoryInfo.createTime | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.meterCategoryInfo.updatedBy">Updated By</span></dt>
+        <dd>
+            <span>{{meterCategoryInfo.updatedBy}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.meterCategoryInfo.updateTime">Update Time</span></dt>
+        <dd>
+            <span>{{meterCategoryInfo.updateTime | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.meterCategoryInfo.controlCommands">Control Commands</span></dt>
+        <dd>
+            <span>{{meterCategoryInfo.controlCommands}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'meter-category-info/'+ meterCategoryInfo.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

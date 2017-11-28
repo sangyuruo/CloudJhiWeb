@@ -1,0 +1,49 @@
+
+<div *ngIf="multiwaySwitchInfo">
+    <h2><span jhiTranslate="emCloudWebApp.multiwaySwitchInfo.detail.title">Multiway Switch Info</span> {{multiwaySwitchInfo.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="emCloudWebApp.multiwaySwitchInfo.meterCode">Meter Code</span></dt>
+        <dd>
+            <span>{{multiwaySwitchInfo.meterCode}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.multiwaySwitchInfo.switchCode">Switch Code</span></dt>
+        <dd>
+            <span>{{multiwaySwitchInfo.switchCode}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.multiwaySwitchInfo.createdBy">Created By</span></dt>
+        <dd>
+            <span>{{multiwaySwitchInfo.createdBy}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.multiwaySwitchInfo.createTime">Create Time</span></dt>
+        <dd>
+            <span>{{multiwaySwitchInfo.createTime | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.multiwaySwitchInfo.updatedBy">Updated By</span></dt>
+        <dd>
+            <span>{{multiwaySwitchInfo.updatedBy}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.multiwaySwitchInfo.updateTime">Update Time</span></dt>
+        <dd>
+            <span>{{multiwaySwitchInfo.updateTime | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.multiwaySwitchInfo.controlCommands">Control Commands</span></dt>
+        <dd>
+            <span>{{multiwaySwitchInfo.controlCommands}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'multiway-switch-info/'+ multiwaySwitchInfo.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

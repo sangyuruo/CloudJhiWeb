@@ -1,0 +1,36 @@
+{
+    "emCloudWebApp": {
+        "meterCategoryInfo" : {
+            "home": {
+                "title": "Meter Category Infos",
+                "createLabel": "创建新 Meter Category Info",
+                "createOrEditLabel": "创建或编辑 Meter Category Info"
+            },
+            "delete": {
+                "question": "你确定要删除 Meter Category Info {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Meter Category Info"
+            },
+            "meterName": "Meter Name",
+            "meterType": "Meter Type",
+            "meterFactory": "Meter Factory",
+            "tel": "Tel",
+            "startOffset": "Start Offset",
+            "numberOfRegisters": "Number Of Registers",
+            "controlAddress": "Control Address",
+            "createdBy": "Created By",
+            "createTime": "Create Time",
+            "updatedBy": "Updated By",
+            "updateTime": "Update Time",
+            "controlCommands": "Control Commands"
+        }
+    },
+    "emCloudMiApp": {
+        "meterCategoryInfo" : {
+            "created": "Meter Category Info {{ param }} 创建成功",
+            "updated": "Meter Category Info {{ param }} 更新成功",
+            "deleted": "Meter Category Info {{ param }} 删除成功"
+        }
+    }
+}

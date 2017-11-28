@@ -9,6 +9,9 @@ import { EmCloudWebAddressModule } from './address/address.module';
 import { EmCloudWebCompointModule } from './compoint/compoint.module';
 import { EmCloudWebMessageTemplateModule } from './message-template/message-template.module';
 import { EmCloudWebNotifyLogModule } from './notify-log/notify-log.module';
+import { EmCloudWebMeterCategoryInfoModule } from './meter-category-info/meter-category-info.module';
+import { EmCloudWebMeterInfoModule } from './meter-info/meter-info.module';
+import { EmCloudWebMultiwaySwitchInfoModule } from './multiway-switch-info/multiway-switch-info.module';
 /* jhipster-needle-add-entity-module-import - JHipster will add entity modules imports here */
 
 @NgModule({
@@ -22,6 +25,9 @@ import { EmCloudWebNotifyLogModule } from './notify-log/notify-log.module';
         EmCloudWebCompointModule,
         EmCloudWebMessageTemplateModule,
         EmCloudWebNotifyLogModule,
+        EmCloudWebMeterCategoryInfoModule,
+        EmCloudWebMeterInfoModule,
+        EmCloudWebMultiwaySwitchInfoModule,
         /* jhipster-needle-add-entity-module - JHipster will add entity modules here */
     ],
     declarations: [],

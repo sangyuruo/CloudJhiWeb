@@ -16,6 +16,9 @@
                 "compoint": "Compoint",
                 "messageTemplate": "Message Template",
                 "notifyLog": "Notify Log",
+                "meterCategoryInfo": "Meter Category Info",
+                "meterInfo": "Meter Info",
+                "multiwaySwitchInfo": "Multiway Switch Info",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

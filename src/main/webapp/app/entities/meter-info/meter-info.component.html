@@ -1,0 +1,105 @@
+<div>
+    <h2>
+        <span jhiTranslate="emCloudWebApp.meterInfo.home.title">Meter Infos</span>
+        <button class="btn btn-primary float-right jh-create-entity create-meter-info" [routerLink]="['/', { outlets: { popup: ['meter-info-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="emCloudWebApp.meterInfo.home.createLabel">
+            Create new Meter Info
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="meterInfos">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="meterCode"><span jhiTranslate="emCloudWebApp.meterInfo.meterCode">Meter Code</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="meterName"><span jhiTranslate="emCloudWebApp.meterInfo.meterName">Meter Name</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="registerCode"><span jhiTranslate="emCloudWebApp.meterInfo.registerCode">Register Code</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="addressCode"><span jhiTranslate="emCloudWebApp.meterInfo.addressCode">Address Code</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="organizationCode"><span jhiTranslate="emCloudWebApp.meterInfo.organizationCode">Organization Code</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="companyCode"><span jhiTranslate="emCloudWebApp.meterInfo.companyCode">Company Code</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="meterType"><span jhiTranslate="emCloudWebApp.meterInfo.meterType">Meter Type</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="startOffset"><span jhiTranslate="emCloudWebApp.meterInfo.startOffset">Start Offset</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="numberOfRegisters"><span jhiTranslate="emCloudWebApp.meterInfo.numberOfRegisters">Number Of Registers</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="controlAddress"><span jhiTranslate="emCloudWebApp.meterInfo.controlAddress">Control Address</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="createdBy"><span jhiTranslate="emCloudWebApp.meterInfo.createdBy">Created By</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="createTime"><span jhiTranslate="emCloudWebApp.meterInfo.createTime">Create Time</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="updatedBy"><span jhiTranslate="emCloudWebApp.meterInfo.updatedBy">Updated By</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="updateTime"><span jhiTranslate="emCloudWebApp.meterInfo.updateTime">Update Time</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="controlCommands"><span jhiTranslate="emCloudWebApp.meterInfo.controlCommands">Control Commands</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="multiwaySwitchInfo.id"><span jhiTranslate="emCloudWebApp.meterInfo.multiwaySwitchInfo">Multiway Switch Info</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="meterCategoryInfo.id"><span jhiTranslate="emCloudWebApp.meterInfo.meterCategoryInfo">Meter Category Info</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let meterInfo of meterInfos ;trackBy: trackId">
+                <td><a [routerLink]="['../meter-info', meterInfo.id ]">{{meterInfo.id}}</a></td>
+                <td>{{meterInfo.meterCode}}</td>
+                <td>{{meterInfo.meterName}}</td>
+                <td>{{meterInfo.registerCode}}</td>
+                <td>{{meterInfo.addressCode}}</td>
+                <td>{{meterInfo.organizationCode}}</td>
+                <td>{{meterInfo.companyCode}}</td>
+                <td>{{meterInfo.meterType}}</td>
+                <td>{{meterInfo.startOffset}}</td>
+                <td>{{meterInfo.numberOfRegisters}}</td>
+                <td>{{meterInfo.controlAddress}}</td>
+                <td>{{meterInfo.createdBy}}</td>
+                <td>{{meterInfo.createTime | date:'medium'}}</td>
+                <td>{{meterInfo.updatedBy}}</td>
+                <td>{{meterInfo.updateTime | date:'medium'}}</td>
+                <td>{{meterInfo.controlCommands}}</td>
+                <td>
+                    <div *ngIf="meterInfo.multiwaySwitchInfo">
+                        <a [routerLink]="['../multiway-switch-info', meterInfo.multiwaySwitchInfo?.id ]" >{{meterInfo.multiwaySwitchInfo?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="meterInfo.meterCategoryInfo">
+                        <a [routerLink]="['../meter-category-info', meterInfo.meterCategoryInfo?.id ]" >{{meterInfo.meterCategoryInfo?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../meter-info', meterInfo.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'meter-info/'+ meterInfo.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'meter-info/'+ meterInfo.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+        <!-- Pager is not implemented yet, so this is normal pagination instead -->
+        <div *ngIf="meterInfos && meterInfos.length">
+            <div class="row justify-content-center">
+                <jhi-item-count [page]="page" [total]="queryCount" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+            </div>
+            <div class="row justify-content-center">
+                <ngb-pagination [collectionSize]="totalItems" [maxSize]="5" [(page)]="page"  (pageChange)="loadPage(page)"></ngb-pagination>
+            </div>
+        </div>
+</div>

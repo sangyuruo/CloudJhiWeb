@@ -1,0 +1,287 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myCompointLabel" jhiTranslate="emCloudWebApp.compoint.home.createOrEditLabel">Create or edit a Compoint</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!compoint.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="compoint.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.compoint.comPointCode" for="field_comPointCode">Com Point Code</label>
+            <input type="text" class="form-control" name="comPointCode" id="field_comPointCode"
+                [(ngModel)]="compoint.comPointCode" required maxlength="64" />
+            <div [hidden]="!(editForm.controls.comPointCode?.dirty && editForm.controls.comPointCode?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.comPointCode?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.comPointCode?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 64 }">
+                   This field cannot be longer than 64 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.compoint.registerCode" for="field_registerCode">Register Code</label>
+            <input type="number" class="form-control" name="registerCode" id="field_registerCode"
+                [(ngModel)]="compoint.registerCode" required />
+            <div [hidden]="!(editForm.controls.registerCode?.dirty && editForm.controls.registerCode?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.registerCode?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.registerCode?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.compoint.registerName" for="field_registerName">Register Name</label>
+            <input type="text" class="form-control" name="registerName" id="field_registerName"
+                [(ngModel)]="compoint.registerName" maxlength="50" />
+            <div [hidden]="!(editForm.controls.registerName?.dirty && editForm.controls.registerName?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.registerName?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 50 }">
+                   This field cannot be longer than 50 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.compoint.addressCode" for="field_addressCode">Address Code</label>
+            <input type="text" class="form-control" name="addressCode" id="field_addressCode"
+                [(ngModel)]="compoint.addressCode" required maxlength="64" />
+            <div [hidden]="!(editForm.controls.addressCode?.dirty && editForm.controls.addressCode?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.addressCode?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.addressCode?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 64 }">
+                   This field cannot be longer than 64 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.compoint.organizationCode" for="field_organizationCode">Organization Code</label>
+            <input type="text" class="form-control" name="organizationCode" id="field_organizationCode"
+                [(ngModel)]="compoint.organizationCode" required maxlength="64" />
+            <div [hidden]="!(editForm.controls.organizationCode?.dirty && editForm.controls.organizationCode?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.organizationCode?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.organizationCode?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 64 }">
+                   This field cannot be longer than 64 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.compoint.companyCode" for="field_companyCode">Company Code</label>
+            <input type="text" class="form-control" name="companyCode" id="field_companyCode"
+                [(ngModel)]="compoint.companyCode" required maxlength="64" />
+            <div [hidden]="!(editForm.controls.companyCode?.dirty && editForm.controls.companyCode?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.companyCode?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.companyCode?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 64 }">
+                   This field cannot be longer than 64 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.compoint.ip" for="field_ip">Ip</label>
+            <input type="text" class="form-control" name="ip" id="field_ip"
+                [(ngModel)]="compoint.ip" required maxlength="20" />
+            <div [hidden]="!(editForm.controls.ip?.dirty && editForm.controls.ip?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.ip?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.ip?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 20 }">
+                   This field cannot be longer than 20 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.compoint.hostName" for="field_hostName">Host Name</label>
+            <input type="text" class="form-control" name="hostName" id="field_hostName"
+                [(ngModel)]="compoint.hostName" required maxlength="30" />
+            <div [hidden]="!(editForm.controls.hostName?.dirty && editForm.controls.hostName?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.hostName?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.hostName?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 30 }">
+                   This field cannot be longer than 30 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.compoint.hostPort" for="field_hostPort">Host Port</label>
+            <input type="number" class="form-control" name="hostPort" id="field_hostPort"
+                [(ngModel)]="compoint.hostPort" required />
+            <div [hidden]="!(editForm.controls.hostPort?.dirty && editForm.controls.hostPort?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.hostPort?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.hostPort?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.compoint.requestTimeout" for="field_requestTimeout">Request Timeout</label>
+            <input type="number" class="form-control" name="requestTimeout" id="field_requestTimeout"
+                [(ngModel)]="compoint.requestTimeout" required />
+            <div [hidden]="!(editForm.controls.requestTimeout?.dirty && editForm.controls.requestTimeout?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.requestTimeout?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.requestTimeout?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.compoint.replyTimeout" for="field_replyTimeout">Reply Timeout</label>
+            <input type="number" class="form-control" name="replyTimeout" id="field_replyTimeout"
+                [(ngModel)]="compoint.replyTimeout" required />
+            <div [hidden]="!(editForm.controls.replyTimeout?.dirty && editForm.controls.replyTimeout?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.replyTimeout?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.replyTimeout?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.compoint.enable" for="field_enable">Enable</label>
+            <input type="checkbox" class="form-control" name="enable" id="field_enable"
+                [(ngModel)]="compoint.enable"  />
+            <div [hidden]="!(editForm.controls.enable?.dirty && editForm.controls.enable?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.enable?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.compoint.keepAlive" for="field_keepAlive">Keep Alive</label>
+            <input type="checkbox" class="form-control" name="keepAlive" id="field_keepAlive"
+                [(ngModel)]="compoint.keepAlive"  />
+            <div [hidden]="!(editForm.controls.keepAlive?.dirty && editForm.controls.keepAlive?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.keepAlive?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.compoint.connectMode" for="field_connectMode">Connect Mode</label>
+            <input type="number" class="form-control" name="connectMode" id="field_connectMode"
+                [(ngModel)]="compoint.connectMode" required />
+            <div [hidden]="!(editForm.controls.connectMode?.dirty && editForm.controls.connectMode?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.connectMode?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.connectMode?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.compoint.createdBy" for="field_createdBy">Created By</label>
+            <input type="text" class="form-control" name="createdBy" id="field_createdBy"
+                [(ngModel)]="compoint.createdBy" required maxlength="20" />
+            <div [hidden]="!(editForm.controls.createdBy?.dirty && editForm.controls.createdBy?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.createdBy?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.createdBy?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 20 }">
+                   This field cannot be longer than 20 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.compoint.createTime" for="field_createTime">Create Time</label>
+            <div class="d-flex">
+                <input id="field_createTime" type="datetime-local" class="form-control" name="createTime" [(ngModel)]="compoint.createTime"
+                required  />
+            </div>
+            <div [hidden]="!(editForm.controls.createTime?.dirty && editForm.controls.createTime?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.createTime?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.createTime?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                    This field should be a date and time.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.compoint.updatedBy" for="field_updatedBy">Updated By</label>
+            <input type="text" class="form-control" name="updatedBy" id="field_updatedBy"
+                [(ngModel)]="compoint.updatedBy" required maxlength="20" />
+            <div [hidden]="!(editForm.controls.updatedBy?.dirty && editForm.controls.updatedBy?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.updatedBy?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.updatedBy?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 20 }">
+                   This field cannot be longer than 20 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.compoint.updateTime" for="field_updateTime">Update Time</label>
+            <div class="d-flex">
+                <input id="field_updateTime" type="datetime-local" class="form-control" name="updateTime" [(ngModel)]="compoint.updateTime"
+                required  />
+            </div>
+            <div [hidden]="!(editForm.controls.updateTime?.dirty && editForm.controls.updateTime?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.updateTime?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.updateTime?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                    This field should be a date and time.
+                </small>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

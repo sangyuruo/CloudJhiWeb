@@ -1,0 +1,99 @@
+<div>
+    <h2>
+        <span jhiTranslate="emCloudWebApp.compoint.home.title">Compoints</span>
+        <button class="btn btn-primary float-right jh-create-entity create-compoint" [routerLink]="['/', { outlets: { popup: ['compoint-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="emCloudWebApp.compoint.home.createLabel">
+            Create new Compoint
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="compoints">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="comPointCode"><span jhiTranslate="emCloudWebApp.compoint.comPointCode">Com Point Code</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="registerCode"><span jhiTranslate="emCloudWebApp.compoint.registerCode">Register Code</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="registerName"><span jhiTranslate="emCloudWebApp.compoint.registerName">Register Name</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="addressCode"><span jhiTranslate="emCloudWebApp.compoint.addressCode">Address Code</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="organizationCode"><span jhiTranslate="emCloudWebApp.compoint.organizationCode">Organization Code</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="companyCode"><span jhiTranslate="emCloudWebApp.compoint.companyCode">Company Code</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="ip"><span jhiTranslate="emCloudWebApp.compoint.ip">Ip</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="hostName"><span jhiTranslate="emCloudWebApp.compoint.hostName">Host Name</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="hostPort"><span jhiTranslate="emCloudWebApp.compoint.hostPort">Host Port</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="requestTimeout"><span jhiTranslate="emCloudWebApp.compoint.requestTimeout">Request Timeout</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="replyTimeout"><span jhiTranslate="emCloudWebApp.compoint.replyTimeout">Reply Timeout</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="enable"><span jhiTranslate="emCloudWebApp.compoint.enable">Enable</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="keepAlive"><span jhiTranslate="emCloudWebApp.compoint.keepAlive">Keep Alive</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="connectMode"><span jhiTranslate="emCloudWebApp.compoint.connectMode">Connect Mode</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="createdBy"><span jhiTranslate="emCloudWebApp.compoint.createdBy">Created By</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="createTime"><span jhiTranslate="emCloudWebApp.compoint.createTime">Create Time</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="updatedBy"><span jhiTranslate="emCloudWebApp.compoint.updatedBy">Updated By</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="updateTime"><span jhiTranslate="emCloudWebApp.compoint.updateTime">Update Time</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let compoint of compoints ;trackBy: trackId">
+                <td><a [routerLink]="['../compoint', compoint.id ]">{{compoint.id}}</a></td>
+                <td>{{compoint.comPointCode}}</td>
+                <td>{{compoint.registerCode}}</td>
+                <td>{{compoint.registerName}}</td>
+                <td>{{compoint.addressCode}}</td>
+                <td>{{compoint.organizationCode}}</td>
+                <td>{{compoint.companyCode}}</td>
+                <td>{{compoint.ip}}</td>
+                <td>{{compoint.hostName}}</td>
+                <td>{{compoint.hostPort}}</td>
+                <td>{{compoint.requestTimeout}}</td>
+                <td>{{compoint.replyTimeout}}</td>
+                <td>{{compoint.enable}}</td>
+                <td>{{compoint.keepAlive}}</td>
+                <td>{{compoint.connectMode}}</td>
+                <td>{{compoint.createdBy}}</td>
+                <td>{{compoint.createTime | date:'medium'}}</td>
+                <td>{{compoint.updatedBy}}</td>
+                <td>{{compoint.updateTime | date:'medium'}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../compoint', compoint.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'compoint/'+ compoint.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'compoint/'+ compoint.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+        <!-- Pager is not implemented yet, so this is normal pagination instead -->
+        <div *ngIf="compoints && compoints.length">
+            <div class="row justify-content-center">
+                <jhi-item-count [page]="page" [total]="queryCount" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+            </div>
+            <div class="row justify-content-center">
+                <ngb-pagination [collectionSize]="totalItems" [maxSize]="5" [(page)]="page"  (pageChange)="loadPage(page)"></ngb-pagination>
+            </div>
+        </div>
+</div>

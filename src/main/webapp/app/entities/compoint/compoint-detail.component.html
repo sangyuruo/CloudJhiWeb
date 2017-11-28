@@ -1,0 +1,93 @@
+
+<div *ngIf="compoint">
+    <h2><span jhiTranslate="emCloudWebApp.compoint.detail.title">Compoint</span> {{compoint.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="emCloudWebApp.compoint.comPointCode">Com Point Code</span></dt>
+        <dd>
+            <span>{{compoint.comPointCode}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.compoint.registerCode">Register Code</span></dt>
+        <dd>
+            <span>{{compoint.registerCode}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.compoint.registerName">Register Name</span></dt>
+        <dd>
+            <span>{{compoint.registerName}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.compoint.addressCode">Address Code</span></dt>
+        <dd>
+            <span>{{compoint.addressCode}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.compoint.organizationCode">Organization Code</span></dt>
+        <dd>
+            <span>{{compoint.organizationCode}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.compoint.companyCode">Company Code</span></dt>
+        <dd>
+            <span>{{compoint.companyCode}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.compoint.ip">Ip</span></dt>
+        <dd>
+            <span>{{compoint.ip}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.compoint.hostName">Host Name</span></dt>
+        <dd>
+            <span>{{compoint.hostName}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.compoint.hostPort">Host Port</span></dt>
+        <dd>
+            <span>{{compoint.hostPort}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.compoint.requestTimeout">Request Timeout</span></dt>
+        <dd>
+            <span>{{compoint.requestTimeout}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.compoint.replyTimeout">Reply Timeout</span></dt>
+        <dd>
+            <span>{{compoint.replyTimeout}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.compoint.enable">Enable</span></dt>
+        <dd>
+            <span>{{compoint.enable}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.compoint.keepAlive">Keep Alive</span></dt>
+        <dd>
+            <span>{{compoint.keepAlive}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.compoint.connectMode">Connect Mode</span></dt>
+        <dd>
+            <span>{{compoint.connectMode}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.compoint.createdBy">Created By</span></dt>
+        <dd>
+            <span>{{compoint.createdBy}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.compoint.createTime">Create Time</span></dt>
+        <dd>
+            <span>{{compoint.createTime | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.compoint.updatedBy">Updated By</span></dt>
+        <dd>
+            <span>{{compoint.updatedBy}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.compoint.updateTime">Update Time</span></dt>
+        <dd>
+            <span>{{compoint.updateTime | date:'medium'}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'compoint/'+ compoint.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

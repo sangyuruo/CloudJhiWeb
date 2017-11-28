@@ -6,6 +6,7 @@ import { EmCloudWebDictionaryModule } from './dictionary/dictionary.module';
 import { EmCloudWebDictionaryClassifyModule } from './dictionary-classify/dictionary-classify.module';
 import { EmCloudWebAreaModule } from './area/area.module';
 import { EmCloudWebAddressModule } from './address/address.module';
+import { EmCloudWebCompointModule } from './compoint/compoint.module';
 /* jhipster-needle-add-entity-module-import - JHipster will add entity modules imports here */
 
 @NgModule({
@@ -16,6 +17,7 @@ import { EmCloudWebAddressModule } from './address/address.module';
         EmCloudWebDictionaryClassifyModule,
         EmCloudWebAreaModule,
         EmCloudWebAddressModule,
+        EmCloudWebCompointModule,
         /* jhipster-needle-add-entity-module - JHipster will add entity modules here */
     ],
     declarations: [],

@@ -13,6 +13,7 @@
                 "dictionaryClassify": "Dictionary Classify",
                 "area": "Area",
                 "address": "Address",
+                "compoint": "Compoint",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

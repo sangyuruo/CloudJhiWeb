@@ -1,0 +1,67 @@
+
+<div *ngIf="address">
+    <h2><span jhiTranslate="emCloudWebApp.address.detail.title">Address</span> {{address.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="emCloudWebApp.address.addressName">Address Name</span></dt>
+        <dd>
+            <span>{{address.addressName}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.address.addressCode">Address Code</span></dt>
+        <dd>
+            <span>{{address.addressCode}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.address.longitude">Longitude</span></dt>
+        <dd>
+            <span>{{address.longitude}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.address.latitude">Latitude</span></dt>
+        <dd>
+            <span>{{address.latitude}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.address.areaCode">Area Code</span></dt>
+        <dd>
+            <span>{{address.areaCode}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.address.enable">Enable</span></dt>
+        <dd>
+            <span>{{address.enable}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.address.createdBy">Created By</span></dt>
+        <dd>
+            <span>{{address.createdBy}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.address.createTime">Create Time</span></dt>
+        <dd>
+            <span>{{address.createTime | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.address.updatedBy">Updated By</span></dt>
+        <dd>
+            <span>{{address.updatedBy}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.address.updateTime">Update Time</span></dt>
+        <dd>
+            <span>{{address.updateTime | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.address.area">Area</span></dt>
+        <dd>
+            <div *ngIf="address.area">
+                <a [routerLink]="['/area', address.area?.id]">{{address.area?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'address/'+ address.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

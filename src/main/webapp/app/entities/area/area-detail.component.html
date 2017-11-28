@@ -1,0 +1,61 @@
+
+<div *ngIf="area">
+    <h2><span jhiTranslate="emCloudWebApp.area.detail.title">Area</span> {{area.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="emCloudWebApp.area.areaCode">Area Code</span></dt>
+        <dd>
+            <span>{{area.areaCode}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.area.areaName">Area Name</span></dt>
+        <dd>
+            <span>{{area.areaName}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.area.zipCode">Zip Code</span></dt>
+        <dd>
+            <span>{{area.zipCode}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.area.parentId">Parent Id</span></dt>
+        <dd>
+            <span>{{area.parentId}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.area.parentName">Parent Name</span></dt>
+        <dd>
+            <span>{{area.parentName}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.area.depth">Depth</span></dt>
+        <dd>
+            <span>{{area.depth}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.area.createdBy">Created By</span></dt>
+        <dd>
+            <span>{{area.createdBy}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.area.createTime">Create Time</span></dt>
+        <dd>
+            <span>{{area.createTime | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.area.updatedBy">Updated By</span></dt>
+        <dd>
+            <span>{{area.updatedBy}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.area.updateTime">Update Time</span></dt>
+        <dd>
+            <span>{{area.updateTime | date:'medium'}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'area/'+ area.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

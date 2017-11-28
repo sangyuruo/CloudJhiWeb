@@ -1,0 +1,83 @@
+<div>
+    <h2>
+        <span jhiTranslate="emCloudWebApp.area.home.title">Areas</span>
+        <button class="btn btn-primary float-right jh-create-entity create-area" [routerLink]="['/', { outlets: { popup: ['area-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="emCloudWebApp.area.home.createLabel">
+            Create new Area
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="areas">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="areaCode"><span jhiTranslate="emCloudWebApp.area.areaCode">Area Code</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="areaName"><span jhiTranslate="emCloudWebApp.area.areaName">Area Name</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="zipCode"><span jhiTranslate="emCloudWebApp.area.zipCode">Zip Code</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="parentId"><span jhiTranslate="emCloudWebApp.area.parentId">Parent Id</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="parentName"><span jhiTranslate="emCloudWebApp.area.parentName">Parent Name</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="depth"><span jhiTranslate="emCloudWebApp.area.depth">Depth</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="createdBy"><span jhiTranslate="emCloudWebApp.area.createdBy">Created By</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="createTime"><span jhiTranslate="emCloudWebApp.area.createTime">Create Time</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="updatedBy"><span jhiTranslate="emCloudWebApp.area.updatedBy">Updated By</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="updateTime"><span jhiTranslate="emCloudWebApp.area.updateTime">Update Time</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let area of areas ;trackBy: trackId">
+                <td><a [routerLink]="['../area', area.id ]">{{area.id}}</a></td>
+                <td>{{area.areaCode}}</td>
+                <td>{{area.areaName}}</td>
+                <td>{{area.zipCode}}</td>
+                <td>{{area.parentId}}</td>
+                <td>{{area.parentName}}</td>
+                <td>{{area.depth}}</td>
+                <td>{{area.createdBy}}</td>
+                <td>{{area.createTime | date:'medium'}}</td>
+                <td>{{area.updatedBy}}</td>
+                <td>{{area.updateTime | date:'medium'}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../area', area.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'area/'+ area.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'area/'+ area.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+        <!-- Pager is not implemented yet, so this is normal pagination instead -->
+        <div *ngIf="areas && areas.length">
+            <div class="row justify-content-center">
+                <jhi-item-count [page]="page" [total]="queryCount" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+            </div>
+            <div class="row justify-content-center">
+                <ngb-pagination [collectionSize]="totalItems" [maxSize]="5" [(page)]="page"  (pageChange)="loadPage(page)"></ngb-pagination>
+            </div>
+        </div>
+</div>

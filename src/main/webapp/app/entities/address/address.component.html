@@ -1,0 +1,89 @@
+<div>
+    <h2>
+        <span jhiTranslate="emCloudWebApp.address.home.title">Addresses</span>
+        <button class="btn btn-primary float-right jh-create-entity create-address" [routerLink]="['/', { outlets: { popup: ['address-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="emCloudWebApp.address.home.createLabel">
+            Create new Address
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="addresses">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="addressName"><span jhiTranslate="emCloudWebApp.address.addressName">Address Name</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="addressCode"><span jhiTranslate="emCloudWebApp.address.addressCode">Address Code</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="longitude"><span jhiTranslate="emCloudWebApp.address.longitude">Longitude</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="latitude"><span jhiTranslate="emCloudWebApp.address.latitude">Latitude</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="areaCode"><span jhiTranslate="emCloudWebApp.address.areaCode">Area Code</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="enable"><span jhiTranslate="emCloudWebApp.address.enable">Enable</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="createdBy"><span jhiTranslate="emCloudWebApp.address.createdBy">Created By</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="createTime"><span jhiTranslate="emCloudWebApp.address.createTime">Create Time</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="updatedBy"><span jhiTranslate="emCloudWebApp.address.updatedBy">Updated By</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="updateTime"><span jhiTranslate="emCloudWebApp.address.updateTime">Update Time</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="area.id"><span jhiTranslate="emCloudWebApp.address.area">Area</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let address of addresses ;trackBy: trackId">
+                <td><a [routerLink]="['../address', address.id ]">{{address.id}}</a></td>
+                <td>{{address.addressName}}</td>
+                <td>{{address.addressCode}}</td>
+                <td>{{address.longitude}}</td>
+                <td>{{address.latitude}}</td>
+                <td>{{address.areaCode}}</td>
+                <td>{{address.enable}}</td>
+                <td>{{address.createdBy}}</td>
+                <td>{{address.createTime | date:'medium'}}</td>
+                <td>{{address.updatedBy}}</td>
+                <td>{{address.updateTime | date:'medium'}}</td>
+                <td>
+                    <div *ngIf="address.area">
+                        <a [routerLink]="['../area', address.area?.id ]" >{{address.area?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../address', address.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'address/'+ address.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'address/'+ address.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+        <!-- Pager is not implemented yet, so this is normal pagination instead -->
+        <div *ngIf="addresses && addresses.length">
+            <div class="row justify-content-center">
+                <jhi-item-count [page]="page" [total]="queryCount" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+            </div>
+            <div class="row justify-content-center">
+                <ngb-pagination [collectionSize]="totalItems" [maxSize]="5" [(page)]="page"  (pageChange)="loadPage(page)"></ngb-pagination>
+            </div>
+        </div>
+</div>

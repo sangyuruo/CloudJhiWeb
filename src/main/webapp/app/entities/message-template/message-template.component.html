@@ -1,0 +1,85 @@
+<div>
+    <h2>
+        <span jhiTranslate="emCloudWebApp.messageTemplate.home.title">Message Templates</span>
+        <button class="btn btn-primary float-right jh-create-entity create-message-template" [routerLink]="['/', { outlets: { popup: ['message-template-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="emCloudWebApp.messageTemplate.home.createLabel">
+            Create new Message Template
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="messageTemplates">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="mtCode"><span jhiTranslate="emCloudWebApp.messageTemplate.mtCode">Mt Code</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="content"><span jhiTranslate="emCloudWebApp.messageTemplate.content">Content</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="paramFlag"><span jhiTranslate="emCloudWebApp.messageTemplate.paramFlag">Param Flag</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="type"><span jhiTranslate="emCloudWebApp.messageTemplate.type">Type</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="smsSendChannel"><span jhiTranslate="emCloudWebApp.messageTemplate.smsSendChannel">Sms Send Channel</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="remark"><span jhiTranslate="emCloudWebApp.messageTemplate.remark">Remark</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="enable"><span jhiTranslate="emCloudWebApp.messageTemplate.enable">Enable</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="createdBy"><span jhiTranslate="emCloudWebApp.messageTemplate.createdBy">Created By</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="createTime"><span jhiTranslate="emCloudWebApp.messageTemplate.createTime">Create Time</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="updatedBy"><span jhiTranslate="emCloudWebApp.messageTemplate.updatedBy">Updated By</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="updateTime"><span jhiTranslate="emCloudWebApp.messageTemplate.updateTime">Update Time</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let messageTemplate of messageTemplates ;trackBy: trackId">
+                <td><a [routerLink]="['../message-template', messageTemplate.id ]">{{messageTemplate.id}}</a></td>
+                <td>{{messageTemplate.mtCode}}</td>
+                <td>{{messageTemplate.content}}</td>
+                <td>{{messageTemplate.paramFlag}}</td>
+                <td>{{messageTemplate.type}}</td>
+                <td>{{messageTemplate.smsSendChannel}}</td>
+                <td>{{messageTemplate.remark}}</td>
+                <td>{{messageTemplate.enable}}</td>
+                <td>{{messageTemplate.createdBy}}</td>
+                <td>{{messageTemplate.createTime | date:'medium'}}</td>
+                <td>{{messageTemplate.updatedBy}}</td>
+                <td>{{messageTemplate.updateTime | date:'medium'}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../message-template', messageTemplate.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'message-template/'+ messageTemplate.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'message-template/'+ messageTemplate.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+        <!-- Pager is not implemented yet, so this is normal pagination instead -->
+        <div *ngIf="messageTemplates && messageTemplates.length">
+            <div class="row justify-content-center">
+                <jhi-item-count [page]="page" [total]="queryCount" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+            </div>
+            <div class="row justify-content-center">
+                <ngb-pagination [collectionSize]="totalItems" [maxSize]="5" [(page)]="page"  (pageChange)="loadPage(page)"></ngb-pagination>
+            </div>
+        </div>
+</div>

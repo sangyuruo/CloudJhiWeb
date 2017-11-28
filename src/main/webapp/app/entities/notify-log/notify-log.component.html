@@ -1,0 +1,81 @@
+<div>
+    <h2>
+        <span jhiTranslate="emCloudWebApp.notifyLog.home.title">Notify Logs</span>
+        <button class="btn btn-primary float-right jh-create-entity create-notify-log" [routerLink]="['/', { outlets: { popup: ['notify-log-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="emCloudWebApp.notifyLog.home.createLabel">
+            Create new Notify Log
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="notifyLogs">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="mtid"><span jhiTranslate="emCloudWebApp.notifyLog.mtid">Mtid</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="sendType"><span jhiTranslate="emCloudWebApp.notifyLog.sendType">Send Type</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="sendTarget"><span jhiTranslate="emCloudWebApp.notifyLog.sendTarget">Send Target</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="content"><span jhiTranslate="emCloudWebApp.notifyLog.content">Content</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="status"><span jhiTranslate="emCloudWebApp.notifyLog.status">Status</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="readFlag"><span jhiTranslate="emCloudWebApp.notifyLog.readFlag">Read Flag</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="createdBy"><span jhiTranslate="emCloudWebApp.notifyLog.createdBy">Created By</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="createTime"><span jhiTranslate="emCloudWebApp.notifyLog.createTime">Create Time</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="updateTime"><span jhiTranslate="emCloudWebApp.notifyLog.updateTime">Update Time</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let notifyLog of notifyLogs ;trackBy: trackId">
+                <td><a [routerLink]="['../notify-log', notifyLog.id ]">{{notifyLog.id}}</a></td>
+                <td>{{notifyLog.mtid}}</td>
+                <td>{{notifyLog.sendType}}</td>
+                <td>{{notifyLog.sendTarget}}</td>
+                <td>{{notifyLog.content}}</td>
+                <td>{{notifyLog.status}}</td>
+                <td>{{notifyLog.readFlag}}</td>
+                <td>{{notifyLog.createdBy}}</td>
+                <td>{{notifyLog.createTime | date:'medium'}}</td>
+                <td>{{notifyLog.updateTime | date:'medium'}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../notify-log', notifyLog.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'notify-log/'+ notifyLog.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'notify-log/'+ notifyLog.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+        <!-- Pager is not implemented yet, so this is normal pagination instead -->
+        <div *ngIf="notifyLogs && notifyLogs.length">
+            <div class="row justify-content-center">
+                <jhi-item-count [page]="page" [total]="queryCount" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+            </div>
+            <div class="row justify-content-center">
+                <ngb-pagination [collectionSize]="totalItems" [maxSize]="5" [(page)]="page"  (pageChange)="loadPage(page)"></ngb-pagination>
+            </div>
+        </div>
+</div>

@@ -1,0 +1,35 @@
+{
+    "emCloudWebApp": {
+        "messageTemplate" : {
+            "home": {
+                "title": "Message Templates",
+                "createLabel": "创建新 Message Template",
+                "createOrEditLabel": "创建或编辑 Message Template"
+            },
+            "delete": {
+                "question": "你确定要删除 Message Template {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Message Template"
+            },
+            "mtCode": "Mt Code",
+            "content": "Content",
+            "paramFlag": "Param Flag",
+            "type": "Type",
+            "smsSendChannel": "Sms Send Channel",
+            "remark": "Remark",
+            "enable": "Enable",
+            "createdBy": "Created By",
+            "createTime": "Create Time",
+            "updatedBy": "Updated By",
+            "updateTime": "Update Time"
+        }
+    },
+    "emCloudNfsApp": {
+        "messageTemplate" : {
+            "created": "Message Template {{ param }} 创建成功",
+            "updated": "Message Template {{ param }} 更新成功",
+            "deleted": "Message Template {{ param }} 删除成功"
+        }
+    }
+}

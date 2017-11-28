@@ -7,6 +7,8 @@ import { EmCloudWebDictionaryClassifyModule } from './dictionary-classify/dictio
 import { EmCloudWebAreaModule } from './area/area.module';
 import { EmCloudWebAddressModule } from './address/address.module';
 import { EmCloudWebCompointModule } from './compoint/compoint.module';
+import { EmCloudWebMessageTemplateModule } from './message-template/message-template.module';
+import { EmCloudWebNotifyLogModule } from './notify-log/notify-log.module';
 /* jhipster-needle-add-entity-module-import - JHipster will add entity modules imports here */
 
 @NgModule({
@@ -18,6 +20,8 @@ import { EmCloudWebCompointModule } from './compoint/compoint.module';
         EmCloudWebAreaModule,
         EmCloudWebAddressModule,
         EmCloudWebCompointModule,
+        EmCloudWebMessageTemplateModule,
+        EmCloudWebNotifyLogModule,
         /* jhipster-needle-add-entity-module - JHipster will add entity modules here */
     ],
     declarations: [],

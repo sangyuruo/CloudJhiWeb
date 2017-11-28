@@ -1,0 +1,57 @@
+
+<div *ngIf="notifyLog">
+    <h2><span jhiTranslate="emCloudWebApp.notifyLog.detail.title">Notify Log</span> {{notifyLog.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="emCloudWebApp.notifyLog.mtid">Mtid</span></dt>
+        <dd>
+            <span>{{notifyLog.mtid}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.notifyLog.sendType">Send Type</span></dt>
+        <dd>
+            <span>{{notifyLog.sendType}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.notifyLog.sendTarget">Send Target</span></dt>
+        <dd>
+            <span>{{notifyLog.sendTarget}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.notifyLog.content">Content</span></dt>
+        <dd>
+            <span>{{notifyLog.content}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.notifyLog.status">Status</span></dt>
+        <dd>
+            <span>{{notifyLog.status}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.notifyLog.readFlag">Read Flag</span></dt>
+        <dd>
+            <span>{{notifyLog.readFlag}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.notifyLog.createdBy">Created By</span></dt>
+        <dd>
+            <span>{{notifyLog.createdBy}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.notifyLog.createTime">Create Time</span></dt>
+        <dd>
+            <span>{{notifyLog.createTime | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.notifyLog.updateTime">Update Time</span></dt>
+        <dd>
+            <span>{{notifyLog.updateTime | date:'medium'}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'notify-log/'+ notifyLog.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

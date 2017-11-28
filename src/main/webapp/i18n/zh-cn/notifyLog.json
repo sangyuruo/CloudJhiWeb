@@ -1,0 +1,33 @@
+{
+    "emCloudWebApp": {
+        "notifyLog" : {
+            "home": {
+                "title": "Notify Logs",
+                "createLabel": "创建新 Notify Log",
+                "createOrEditLabel": "创建或编辑 Notify Log"
+            },
+            "delete": {
+                "question": "你确定要删除 Notify Log {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Notify Log"
+            },
+            "mtid": "Mtid",
+            "sendType": "Send Type",
+            "sendTarget": "Send Target",
+            "content": "Content",
+            "status": "Status",
+            "readFlag": "Read Flag",
+            "createdBy": "Created By",
+            "createTime": "Create Time",
+            "updateTime": "Update Time"
+        }
+    },
+    "emCloudNfsApp": {
+        "notifyLog" : {
+            "created": "Notify Log {{ param }} 创建成功",
+            "updated": "Notify Log {{ param }} 更新成功",
+            "deleted": "Notify Log {{ param }} 删除成功"
+        }
+    }
+}

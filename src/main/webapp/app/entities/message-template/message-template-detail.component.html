@@ -1,0 +1,65 @@
+
+<div *ngIf="messageTemplate">
+    <h2><span jhiTranslate="emCloudWebApp.messageTemplate.detail.title">Message Template</span> {{messageTemplate.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="emCloudWebApp.messageTemplate.mtCode">Mt Code</span></dt>
+        <dd>
+            <span>{{messageTemplate.mtCode}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.messageTemplate.content">Content</span></dt>
+        <dd>
+            <span>{{messageTemplate.content}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.messageTemplate.paramFlag">Param Flag</span></dt>
+        <dd>
+            <span>{{messageTemplate.paramFlag}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.messageTemplate.type">Type</span></dt>
+        <dd>
+            <span>{{messageTemplate.type}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.messageTemplate.smsSendChannel">Sms Send Channel</span></dt>
+        <dd>
+            <span>{{messageTemplate.smsSendChannel}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.messageTemplate.remark">Remark</span></dt>
+        <dd>
+            <span>{{messageTemplate.remark}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.messageTemplate.enable">Enable</span></dt>
+        <dd>
+            <span>{{messageTemplate.enable}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.messageTemplate.createdBy">Created By</span></dt>
+        <dd>
+            <span>{{messageTemplate.createdBy}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.messageTemplate.createTime">Create Time</span></dt>
+        <dd>
+            <span>{{messageTemplate.createTime | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.messageTemplate.updatedBy">Updated By</span></dt>
+        <dd>
+            <span>{{messageTemplate.updatedBy}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.messageTemplate.updateTime">Update Time</span></dt>
+        <dd>
+            <span>{{messageTemplate.updateTime | date:'medium'}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'message-template/'+ messageTemplate.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

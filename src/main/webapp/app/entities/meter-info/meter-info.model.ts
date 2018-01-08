@@ -9,6 +9,8 @@ export class MeterInfo implements BaseEntity {
         public addressCode?: string,
         public organizationCode?: string,
         public companyCode?: string,
+        public comPointCode?: string,
+        public meterTypeCode?: number,
         public meterType?: string,
         public startOffset?: number,
         public numberOfRegisters?: number,
@@ -18,8 +20,12 @@ export class MeterInfo implements BaseEntity {
         public updatedBy?: string,
         public updateTime?: any,
         public controlCommands?: string,
-        public multiwaySwitchInfo?: BaseEntity,
+        public bigEndian?: string,
+        public allowDuplicate?: boolean,
+        public calculates?: number,
+        public multiwaySwitchInfos?: BaseEntity[],
         public meterCategoryInfo?: BaseEntity,
     ) {
+        this.allowDuplicate = false;
     }
 }

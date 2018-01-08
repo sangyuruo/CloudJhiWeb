@@ -91,6 +91,32 @@
             </div>
         </div>
         <div class="form-group">
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.meterInfo.comPointCode" for="field_comPointCode">Com Point Code</label>
+            <input type="text" class="form-control" name="comPointCode" id="field_comPointCode"
+                [(ngModel)]="meterInfo.comPointCode" maxlength="64" />
+            <div [hidden]="!(editForm.controls.comPointCode?.dirty && editForm.controls.comPointCode?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.comPointCode?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 64 }">
+                   This field cannot be longer than 64 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.meterInfo.meterTypeCode" for="field_meterTypeCode">Meter Type Code</label>
+            <input type="number" class="form-control" name="meterTypeCode" id="field_meterTypeCode"
+                [(ngModel)]="meterInfo.meterTypeCode" required />
+            <div [hidden]="!(editForm.controls.meterTypeCode?.dirty && editForm.controls.meterTypeCode?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.meterTypeCode?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.meterTypeCode?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
             <label class="form-control-label" jhiTranslate="emCloudWebApp.meterInfo.meterType" for="field_meterType">Meter Type</label>
             <input type="text" class="form-control" name="meterType" id="field_meterType"
                 [(ngModel)]="meterInfo.meterType" required maxlength="50" />
@@ -195,14 +221,28 @@
                 </small>
             </div>
         </div>
-
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="emCloudWebApp.meterInfo.multiwaySwitchInfo" for="field_multiwaySwitchInfo">Multiway Switch Info</label>
-            <select class="form-control" id="field_multiwaySwitchInfo" name="multiwaySwitchInfo" [(ngModel)]="meterInfo.multiwaySwitchInfo">
-                <option [ngValue]="null"></option>
-                <option [ngValue]="multiwaySwitchInfoOption.id === meterInfo.multiwaySwitchInfo?.id ? meterInfo.multiwaySwitchInfo : multiwaySwitchInfoOption" *ngFor="let multiwaySwitchInfoOption of multiwayswitchinfos; trackBy: trackMultiwaySwitchInfoById">{{multiwaySwitchInfoOption.id}}</option>
-            </select>
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.meterInfo.bigEndian" for="field_bigEndian">Big Endian</label>
+            <input type="text" class="form-control" name="bigEndian" id="field_bigEndian"
+                [(ngModel)]="meterInfo.bigEndian" maxlength="100" />
+            <div [hidden]="!(editForm.controls.bigEndian?.dirty && editForm.controls.bigEndian?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.bigEndian?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 100 }">
+                   This field cannot be longer than 100 characters.
+                </small>
+            </div>
         </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.meterInfo.allowDuplicate" for="field_allowDuplicate">Allow Duplicate</label>
+            <input type="checkbox" class="form-control" name="allowDuplicate" id="field_allowDuplicate"
+                [(ngModel)]="meterInfo.allowDuplicate"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.meterInfo.calculates" for="field_calculates">Calculates</label>
+            <input type="number" class="form-control" name="calculates" id="field_calculates"
+                [(ngModel)]="meterInfo.calculates"  />
+        </div>
+
         <div class="form-group">
             <label class="form-control-label" jhiTranslate="emCloudWebApp.meterInfo.meterCategoryInfo" for="field_meterCategoryInfo">Meter Category Info</label>
             <select class="form-control" id="field_meterCategoryInfo" name="meterCategoryInfo" [(ngModel)]="meterInfo.meterCategoryInfo" >

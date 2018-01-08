@@ -9,7 +9,6 @@ import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
 import { MeterInfo } from './meter-info.model';
 import { MeterInfoPopupService } from './meter-info-popup.service';
 import { MeterInfoService } from './meter-info.service';
-import { MultiwaySwitchInfo, MultiwaySwitchInfoService } from '../multiway-switch-info';
 import { MeterCategoryInfo, MeterCategoryInfoService } from '../meter-category-info';
 import { ResponseWrapper } from '../../shared';
 
@@ -22,15 +21,12 @@ export class MeterInfoDialogComponent implements OnInit {
     meterInfo: MeterInfo;
     isSaving: boolean;
 
-    multiwayswitchinfos: MultiwaySwitchInfo[];
-
     metercategoryinfos: MeterCategoryInfo[];
 
     constructor(
         public activeModal: NgbActiveModal,
         private jhiAlertService: JhiAlertService,
         private meterInfoService: MeterInfoService,
-        private multiwaySwitchInfoService: MultiwaySwitchInfoService,
         private meterCategoryInfoService: MeterCategoryInfoService,
         private eventManager: JhiEventManager
     ) {
@@ -38,19 +34,6 @@ export class MeterInfoDialogComponent implements OnInit {
 
     ngOnInit() {
         this.isSaving = false;
-        this.multiwaySwitchInfoService
-            .query({filter: 'meterinfo-is-null'})
-            .subscribe((res: ResponseWrapper) => {
-                if (!this.meterInfo.multiwaySwitchInfo || !this.meterInfo.multiwaySwitchInfo.id) {
-                    this.multiwayswitchinfos = res.json;
-                } else {
-                    this.multiwaySwitchInfoService
-                        .find(this.meterInfo.multiwaySwitchInfo.id)
-                        .subscribe((subRes: MultiwaySwitchInfo) => {
-                            this.multiwayswitchinfos = [subRes].concat(res.json);
-                        }, (subRes: ResponseWrapper) => this.onError(subRes.json));
-                }
-            }, (res: ResponseWrapper) => this.onError(res.json));
         this.meterCategoryInfoService.query()
             .subscribe((res: ResponseWrapper) => { this.metercategoryinfos = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
     }
@@ -87,10 +70,6 @@ export class MeterInfoDialogComponent implements OnInit {
 
     private onError(error: any) {
         this.jhiAlertService.error(error.message, null, null);
-    }
-
-    trackMultiwaySwitchInfoById(index: number, item: MultiwaySwitchInfo) {
-        return item.id;
     }
 
     trackMeterCategoryInfoById(index: number, item: MeterCategoryInfo) {

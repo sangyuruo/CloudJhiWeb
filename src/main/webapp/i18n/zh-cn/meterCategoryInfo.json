@@ -12,8 +12,11 @@
             "detail": {
                 "title": "Meter Category Info"
             },
-            "meterName": "Meter Name",
+            "meterTypeCode": "Meter Type Code",
             "meterType": "Meter Type",
+            "dictCode": "Dict Code",
+            "dictName": "Dict Name",
+            "functionCode": "Function Code",
             "meterFactory": "Meter Factory",
             "tel": "Tel",
             "startOffset": "Start Offset",
@@ -23,7 +26,9 @@
             "createTime": "Create Time",
             "updatedBy": "Updated By",
             "updateTime": "Update Time",
-            "controlCommands": "Control Commands"
+            "controlCommands": "Control Commands",
+            "longCode": "Long Code",
+            "enable": "Enable"
         }
     },
     "emCloudMiApp": {

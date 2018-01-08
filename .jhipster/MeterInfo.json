@@ -2,11 +2,9 @@
     "fluentMethods": true,
     "relationships": [
         {
-            "relationshipType": "one-to-one",
+            "relationshipType": "one-to-many",
             "relationshipName": "multiwaySwitchInfo",
             "otherEntityName": "multiwaySwitchInfo",
-            "otherEntityField": "id",
-            "ownerSide": true,
             "otherEntityRelationshipName": "meterInfo"
         },
         {
@@ -71,6 +69,23 @@
                 "maxlength"
             ],
             "fieldValidateRulesMaxlength": 64
+        },
+        {
+            "fieldName": "comPointCode",
+            "javadoc": "串口编码",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 64
+        },
+        {
+            "fieldName": "meterTypeCode",
+            "javadoc": "设备类型代码",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
         },
         {
             "fieldName": "meterType",
@@ -141,9 +156,28 @@
                 "maxlength"
             ],
             "fieldValidateRulesMaxlength": 100
+        },
+        {
+            "fieldName": "bigEndian",
+            "javadoc": "大Endian",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 100
+        },
+        {
+            "fieldName": "allowDuplicate",
+            "javadoc": "允许重复",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "calculates",
+            "javadoc": "计算",
+            "fieldType": "Integer"
         }
     ],
-    "changelogDate": "20171116095415",
+    "changelogDate": "20171205062025",
     "javadoc": "设备信息表\n@author youhong",
     "entityTableName": "meter_info",
     "dto": "no",

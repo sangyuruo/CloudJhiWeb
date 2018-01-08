@@ -28,6 +28,14 @@
         <dd>
             <span>{{meterInfo.companyCode}}</span>
         </dd>
+        <dt><span jhiTranslate="emCloudWebApp.meterInfo.comPointCode">Com Point Code</span></dt>
+        <dd>
+            <span>{{meterInfo.comPointCode}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.meterInfo.meterTypeCode">Meter Type Code</span></dt>
+        <dd>
+            <span>{{meterInfo.meterTypeCode}}</span>
+        </dd>
         <dt><span jhiTranslate="emCloudWebApp.meterInfo.meterType">Meter Type</span></dt>
         <dd>
             <span>{{meterInfo.meterType}}</span>
@@ -64,11 +72,17 @@
         <dd>
             <span>{{meterInfo.controlCommands}}</span>
         </dd>
-        <dt><span jhiTranslate="emCloudWebApp.meterInfo.multiwaySwitchInfo">Multiway Switch Info</span></dt>
+        <dt><span jhiTranslate="emCloudWebApp.meterInfo.bigEndian">Big Endian</span></dt>
         <dd>
-            <div *ngIf="meterInfo.multiwaySwitchInfo">
-                <a [routerLink]="['/multiway-switch-info', meterInfo.multiwaySwitchInfo?.id]">{{meterInfo.multiwaySwitchInfo?.id}}</a>
-            </div>
+            <span>{{meterInfo.bigEndian}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.meterInfo.allowDuplicate">Allow Duplicate</span></dt>
+        <dd>
+            <span>{{meterInfo.allowDuplicate}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.meterInfo.calculates">Calculates</span></dt>
+        <dd>
+            <span>{{meterInfo.calculates}}</span>
         </dd>
         <dt><span jhiTranslate="emCloudWebApp.meterInfo.meterCategoryInfo">Meter Category Info</span></dt>
         <dd>

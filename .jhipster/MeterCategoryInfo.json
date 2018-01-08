@@ -3,8 +3,16 @@
     "relationships": [],
     "fields": [
         {
-            "fieldName": "meterName",
-            "javadoc": "设备名称",
+            "fieldName": "meterTypeCode",
+            "javadoc": "设备分类代码",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "meterType",
+            "javadoc": "设备分类",
             "fieldType": "String",
             "fieldValidateRules": [
                 "maxlength",
@@ -13,8 +21,26 @@
             "fieldValidateRulesMaxlength": 64
         },
         {
-            "fieldName": "meterType",
-            "javadoc": "设备类型",
+            "fieldName": "dictCode",
+            "javadoc": "设备大类代码",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "dictName",
+            "javadoc": "设备大类名称",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 100
+        },
+        {
+            "fieldName": "functionCode",
+            "javadoc": "功能码",
             "fieldType": "String",
             "fieldValidateRules": [
                 "maxlength",
@@ -96,9 +122,22 @@
                 "maxlength"
             ],
             "fieldValidateRulesMaxlength": 100
+        },
+        {
+            "fieldName": "longCode",
+            "javadoc": "长码",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "enable",
+            "javadoc": "是否有效",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
         }
     ],
-    "changelogDate": "20171116095414",
+    "changelogDate": "20180105123935",
     "javadoc": "设备分类信息表\n@author youhong",
     "entityTableName": "meter_category_info",
     "dto": "no",

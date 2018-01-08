@@ -13,31 +13,76 @@
                    [(ngModel)]="meterCategoryInfo.id" readonly />
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="emCloudWebApp.meterCategoryInfo.meterName" for="field_meterName">Meter Name</label>
-            <input type="text" class="form-control" name="meterName" id="field_meterName"
-                [(ngModel)]="meterCategoryInfo.meterName" required maxlength="64" />
-            <div [hidden]="!(editForm.controls.meterName?.dirty && editForm.controls.meterName?.invalid)">
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.meterCategoryInfo.meterTypeCode" for="field_meterTypeCode">Meter Type Code</label>
+            <input type="number" class="form-control" name="meterTypeCode" id="field_meterTypeCode"
+                [(ngModel)]="meterCategoryInfo.meterTypeCode" required />
+            <div [hidden]="!(editForm.controls.meterTypeCode?.dirty && editForm.controls.meterTypeCode?.invalid)">
                 <small class="form-text text-danger"
-                   [hidden]="!editForm.controls.meterName?.errors?.required" jhiTranslate="entity.validation.required">
+                   [hidden]="!editForm.controls.meterTypeCode?.errors?.required" jhiTranslate="entity.validation.required">
                    This field is required.
                 </small>
                 <small class="form-text text-danger"
-                   [hidden]="!editForm.controls.meterName?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 64 }">
-                   This field cannot be longer than 64 characters.
+                    [hidden]="!editForm.controls.meterTypeCode?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
                 </small>
             </div>
         </div>
         <div class="form-group">
             <label class="form-control-label" jhiTranslate="emCloudWebApp.meterCategoryInfo.meterType" for="field_meterType">Meter Type</label>
             <input type="text" class="form-control" name="meterType" id="field_meterType"
-                [(ngModel)]="meterCategoryInfo.meterType" required maxlength="100" />
+                [(ngModel)]="meterCategoryInfo.meterType" required maxlength="64" />
             <div [hidden]="!(editForm.controls.meterType?.dirty && editForm.controls.meterType?.invalid)">
                 <small class="form-text text-danger"
                    [hidden]="!editForm.controls.meterType?.errors?.required" jhiTranslate="entity.validation.required">
                    This field is required.
                 </small>
                 <small class="form-text text-danger"
-                   [hidden]="!editForm.controls.meterType?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 100 }">
+                   [hidden]="!editForm.controls.meterType?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 64 }">
+                   This field cannot be longer than 64 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.meterCategoryInfo.dictCode" for="field_dictCode">Dict Code</label>
+            <input type="number" class="form-control" name="dictCode" id="field_dictCode"
+                [(ngModel)]="meterCategoryInfo.dictCode" required />
+            <div [hidden]="!(editForm.controls.dictCode?.dirty && editForm.controls.dictCode?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.dictCode?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.dictCode?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.meterCategoryInfo.dictName" for="field_dictName">Dict Name</label>
+            <input type="text" class="form-control" name="dictName" id="field_dictName"
+                [(ngModel)]="meterCategoryInfo.dictName" required maxlength="100" />
+            <div [hidden]="!(editForm.controls.dictName?.dirty && editForm.controls.dictName?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.dictName?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.dictName?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 100 }">
+                   This field cannot be longer than 100 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.meterCategoryInfo.functionCode" for="field_functionCode">Function Code</label>
+            <input type="text" class="form-control" name="functionCode" id="field_functionCode"
+                [(ngModel)]="meterCategoryInfo.functionCode" required maxlength="100" />
+            <div [hidden]="!(editForm.controls.functionCode?.dirty && editForm.controls.functionCode?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.functionCode?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.functionCode?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 100 }">
                    This field cannot be longer than 100 characters.
                 </small>
             </div>
@@ -149,6 +194,22 @@
                 <small class="form-text text-danger"
                    [hidden]="!editForm.controls.controlCommands?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 100 }">
                    This field cannot be longer than 100 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.meterCategoryInfo.longCode" for="field_longCode">Long Code</label>
+            <input type="number" class="form-control" name="longCode" id="field_longCode"
+                [(ngModel)]="meterCategoryInfo.longCode"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.meterCategoryInfo.enable" for="field_enable">Enable</label>
+            <input type="checkbox" class="form-control" name="enable" id="field_enable"
+                [(ngModel)]="meterCategoryInfo.enable"  />
+            <div [hidden]="!(editForm.controls.enable?.dirty && editForm.controls.enable?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.enable?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
                 </small>
             </div>
         </div>

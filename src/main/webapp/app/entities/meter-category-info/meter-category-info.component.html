@@ -17,8 +17,11 @@
             <thead>
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
             <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="meterName"><span jhiTranslate="emCloudWebApp.meterCategoryInfo.meterName">Meter Name</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="meterTypeCode"><span jhiTranslate="emCloudWebApp.meterCategoryInfo.meterTypeCode">Meter Type Code</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="meterType"><span jhiTranslate="emCloudWebApp.meterCategoryInfo.meterType">Meter Type</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="dictCode"><span jhiTranslate="emCloudWebApp.meterCategoryInfo.dictCode">Dict Code</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="dictName"><span jhiTranslate="emCloudWebApp.meterCategoryInfo.dictName">Dict Name</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="functionCode"><span jhiTranslate="emCloudWebApp.meterCategoryInfo.functionCode">Function Code</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="meterFactory"><span jhiTranslate="emCloudWebApp.meterCategoryInfo.meterFactory">Meter Factory</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="tel"><span jhiTranslate="emCloudWebApp.meterCategoryInfo.tel">Tel</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="startOffset"><span jhiTranslate="emCloudWebApp.meterCategoryInfo.startOffset">Start Offset</span> <span class="fa fa-sort"></span></th>
@@ -29,14 +32,19 @@
             <th jhiSortBy="updatedBy"><span jhiTranslate="emCloudWebApp.meterCategoryInfo.updatedBy">Updated By</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="updateTime"><span jhiTranslate="emCloudWebApp.meterCategoryInfo.updateTime">Update Time</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="controlCommands"><span jhiTranslate="emCloudWebApp.meterCategoryInfo.controlCommands">Control Commands</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="longCode"><span jhiTranslate="emCloudWebApp.meterCategoryInfo.longCode">Long Code</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="enable"><span jhiTranslate="emCloudWebApp.meterCategoryInfo.enable">Enable</span> <span class="fa fa-sort"></span></th>
             <th></th>
             </tr>
             </thead>
             <tbody>
             <tr *ngFor="let meterCategoryInfo of meterCategoryInfos ;trackBy: trackId">
                 <td><a [routerLink]="['../meter-category-info', meterCategoryInfo.id ]">{{meterCategoryInfo.id}}</a></td>
-                <td>{{meterCategoryInfo.meterName}}</td>
+                <td>{{meterCategoryInfo.meterTypeCode}}</td>
                 <td>{{meterCategoryInfo.meterType}}</td>
+                <td>{{meterCategoryInfo.dictCode}}</td>
+                <td>{{meterCategoryInfo.dictName}}</td>
+                <td>{{meterCategoryInfo.functionCode}}</td>
                 <td>{{meterCategoryInfo.meterFactory}}</td>
                 <td>{{meterCategoryInfo.tel}}</td>
                 <td>{{meterCategoryInfo.startOffset}}</td>
@@ -47,6 +55,8 @@
                 <td>{{meterCategoryInfo.updatedBy}}</td>
                 <td>{{meterCategoryInfo.updateTime | date:'medium'}}</td>
                 <td>{{meterCategoryInfo.controlCommands}}</td>
+                <td>{{meterCategoryInfo.longCode}}</td>
+                <td>{{meterCategoryInfo.enable}}</td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"

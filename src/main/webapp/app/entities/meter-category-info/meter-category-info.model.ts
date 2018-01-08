@@ -3,8 +3,11 @@ import { BaseEntity } from './../../shared';
 export class MeterCategoryInfo implements BaseEntity {
     constructor(
         public id?: number,
-        public meterName?: string,
+        public meterTypeCode?: number,
         public meterType?: string,
+        public dictCode?: number,
+        public dictName?: string,
+        public functionCode?: string,
         public meterFactory?: string,
         public tel?: number,
         public startOffset?: number,
@@ -15,6 +18,9 @@ export class MeterCategoryInfo implements BaseEntity {
         public updatedBy?: string,
         public updateTime?: any,
         public controlCommands?: string,
+        public longCode?: number,
+        public enable?: boolean,
     ) {
+        this.enable = false;
     }
 }

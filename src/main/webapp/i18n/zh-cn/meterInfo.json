@@ -18,6 +18,8 @@
             "addressCode": "Address Code",
             "organizationCode": "Organization Code",
             "companyCode": "Company Code",
+            "comPointCode": "Com Point Code",
+            "meterTypeCode": "Meter Type Code",
             "meterType": "Meter Type",
             "startOffset": "Start Offset",
             "numberOfRegisters": "Number Of Registers",
@@ -27,6 +29,9 @@
             "updatedBy": "Updated By",
             "updateTime": "Update Time",
             "controlCommands": "Control Commands",
+            "bigEndian": "Big Endian",
+            "allowDuplicate": "Allow Duplicate",
+            "calculates": "Calculates",
             "multiwaySwitchInfo": "Multiway Switch Info",
             "meterCategoryInfo": "Meter Category Info"
         }

@@ -1,0 +1,57 @@
+
+<div *ngIf="alarmRule">
+    <h2><span jhiTranslate="emCloudWebApp.alarmRule.detail.title">Alarm Rule</span> {{alarmRule.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="emCloudWebApp.alarmRule.ruleName">Rule Name</span></dt>
+        <dd>
+            <span>{{alarmRule.ruleName}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.alarmRule.ruleCode">Rule Code</span></dt>
+        <dd>
+            <span>{{alarmRule.ruleCode}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.alarmRule.ruleType">Rule Type</span></dt>
+        <dd>
+            <span>{{alarmRule.ruleType}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.alarmRule.alarmLevel">Alarm Level</span></dt>
+        <dd>
+            <span>{{alarmRule.alarmLevel}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.alarmRule.enable">Enable</span></dt>
+        <dd>
+            <span>{{alarmRule.enable}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.alarmRule.createdBy">Created By</span></dt>
+        <dd>
+            <span>{{alarmRule.createdBy}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.alarmRule.createTime">Create Time</span></dt>
+        <dd>
+            <span>{{alarmRule.createTime | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.alarmRule.updatedBy">Updated By</span></dt>
+        <dd>
+            <span>{{alarmRule.updatedBy}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.alarmRule.updateTime">Update Time</span></dt>
+        <dd>
+            <span>{{alarmRule.updateTime | date:'medium'}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'alarm-rule/'+ alarmRule.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

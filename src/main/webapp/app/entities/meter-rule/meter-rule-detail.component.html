@@ -1,0 +1,57 @@
+
+<div *ngIf="meterRule">
+    <h2><span jhiTranslate="emCloudWebApp.meterRule.detail.title">Meter Rule</span> {{meterRule.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="emCloudWebApp.meterRule.meterCode">Meter Code</span></dt>
+        <dd>
+            <span>{{meterRule.meterCode}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.meterRule.meterName">Meter Name</span></dt>
+        <dd>
+            <span>{{meterRule.meterName}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.meterRule.ruleCode">Rule Code</span></dt>
+        <dd>
+            <span>{{meterRule.ruleCode}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.meterRule.ruleName">Rule Name</span></dt>
+        <dd>
+            <span>{{meterRule.ruleName}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.meterRule.enable">Enable</span></dt>
+        <dd>
+            <span>{{meterRule.enable}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.meterRule.createdBy">Created By</span></dt>
+        <dd>
+            <span>{{meterRule.createdBy}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.meterRule.createTime">Create Time</span></dt>
+        <dd>
+            <span>{{meterRule.createTime | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.meterRule.updatedBy">Updated By</span></dt>
+        <dd>
+            <span>{{meterRule.updatedBy}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.meterRule.updateTime">Update Time</span></dt>
+        <dd>
+            <span>{{meterRule.updateTime | date:'medium'}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'meter-rule/'+ meterRule.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

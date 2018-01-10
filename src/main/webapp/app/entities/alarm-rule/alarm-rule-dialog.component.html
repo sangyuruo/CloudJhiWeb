@@ -1,0 +1,160 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myAlarmRuleLabel" jhiTranslate="emCloudWebApp.alarmRule.home.createOrEditLabel">Create or edit a Alarm Rule</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!alarmRule.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="alarmRule.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.alarmRule.ruleName" for="field_ruleName">Rule Name</label>
+            <input type="text" class="form-control" name="ruleName" id="field_ruleName"
+                [(ngModel)]="alarmRule.ruleName" required maxlength="200" />
+            <div [hidden]="!(editForm.controls.ruleName?.dirty && editForm.controls.ruleName?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.ruleName?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.ruleName?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 200 }">
+                   This field cannot be longer than 200 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.alarmRule.ruleCode" for="field_ruleCode">Rule Code</label>
+            <input type="text" class="form-control" name="ruleCode" id="field_ruleCode"
+                [(ngModel)]="alarmRule.ruleCode" required maxlength="64" />
+            <div [hidden]="!(editForm.controls.ruleCode?.dirty && editForm.controls.ruleCode?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.ruleCode?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.ruleCode?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 64 }">
+                   This field cannot be longer than 64 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.alarmRule.ruleType" for="field_ruleType">Rule Type</label>
+            <input type="text" class="form-control" name="ruleType" id="field_ruleType"
+                [(ngModel)]="alarmRule.ruleType" required maxlength="100" />
+            <div [hidden]="!(editForm.controls.ruleType?.dirty && editForm.controls.ruleType?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.ruleType?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.ruleType?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 100 }">
+                   This field cannot be longer than 100 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.alarmRule.alarmLevel" for="field_alarmLevel">Alarm Level</label>
+            <input type="number" class="form-control" name="alarmLevel" id="field_alarmLevel"
+                [(ngModel)]="alarmRule.alarmLevel" required />
+            <div [hidden]="!(editForm.controls.alarmLevel?.dirty && editForm.controls.alarmLevel?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.alarmLevel?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.alarmLevel?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.alarmRule.enable" for="field_enable">Enable</label>
+            <input type="checkbox" class="form-control" name="enable" id="field_enable"
+                [(ngModel)]="alarmRule.enable"  />
+            <div [hidden]="!(editForm.controls.enable?.dirty && editForm.controls.enable?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.enable?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.alarmRule.createdBy" for="field_createdBy">Created By</label>
+            <input type="text" class="form-control" name="createdBy" id="field_createdBy"
+                [(ngModel)]="alarmRule.createdBy" required maxlength="20" />
+            <div [hidden]="!(editForm.controls.createdBy?.dirty && editForm.controls.createdBy?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.createdBy?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.createdBy?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 20 }">
+                   This field cannot be longer than 20 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.alarmRule.createTime" for="field_createTime">Create Time</label>
+            <div class="d-flex">
+                <input id="field_createTime" type="datetime-local" class="form-control" name="createTime" [(ngModel)]="alarmRule.createTime"
+                required  />
+            </div>
+            <div [hidden]="!(editForm.controls.createTime?.dirty && editForm.controls.createTime?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.createTime?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.createTime?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                    This field should be a date and time.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.alarmRule.updatedBy" for="field_updatedBy">Updated By</label>
+            <input type="text" class="form-control" name="updatedBy" id="field_updatedBy"
+                [(ngModel)]="alarmRule.updatedBy" required maxlength="20" />
+            <div [hidden]="!(editForm.controls.updatedBy?.dirty && editForm.controls.updatedBy?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.updatedBy?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.updatedBy?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 20 }">
+                   This field cannot be longer than 20 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.alarmRule.updateTime" for="field_updateTime">Update Time</label>
+            <div class="d-flex">
+                <input id="field_updateTime" type="datetime-local" class="form-control" name="updateTime" [(ngModel)]="alarmRule.updateTime"
+                required  />
+            </div>
+            <div [hidden]="!(editForm.controls.updateTime?.dirty && editForm.controls.updateTime?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.updateTime?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.updateTime?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                    This field should be a date and time.
+                </small>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

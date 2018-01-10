@@ -1,0 +1,160 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myMeterRuleLabel" jhiTranslate="emCloudWebApp.meterRule.home.createOrEditLabel">Create or edit a Meter Rule</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!meterRule.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="meterRule.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.meterRule.meterCode" for="field_meterCode">Meter Code</label>
+            <input type="text" class="form-control" name="meterCode" id="field_meterCode"
+                [(ngModel)]="meterRule.meterCode" required maxlength="64" />
+            <div [hidden]="!(editForm.controls.meterCode?.dirty && editForm.controls.meterCode?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.meterCode?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.meterCode?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 64 }">
+                   This field cannot be longer than 64 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.meterRule.meterName" for="field_meterName">Meter Name</label>
+            <input type="text" class="form-control" name="meterName" id="field_meterName"
+                [(ngModel)]="meterRule.meterName" required maxlength="200" />
+            <div [hidden]="!(editForm.controls.meterName?.dirty && editForm.controls.meterName?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.meterName?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.meterName?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 200 }">
+                   This field cannot be longer than 200 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.meterRule.ruleCode" for="field_ruleCode">Rule Code</label>
+            <input type="text" class="form-control" name="ruleCode" id="field_ruleCode"
+                [(ngModel)]="meterRule.ruleCode" required maxlength="64" />
+            <div [hidden]="!(editForm.controls.ruleCode?.dirty && editForm.controls.ruleCode?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.ruleCode?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.ruleCode?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 64 }">
+                   This field cannot be longer than 64 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.meterRule.ruleName" for="field_ruleName">Rule Name</label>
+            <input type="text" class="form-control" name="ruleName" id="field_ruleName"
+                [(ngModel)]="meterRule.ruleName" required maxlength="200" />
+            <div [hidden]="!(editForm.controls.ruleName?.dirty && editForm.controls.ruleName?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.ruleName?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.ruleName?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 200 }">
+                   This field cannot be longer than 200 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.meterRule.enable" for="field_enable">Enable</label>
+            <input type="checkbox" class="form-control" name="enable" id="field_enable"
+                [(ngModel)]="meterRule.enable"  />
+            <div [hidden]="!(editForm.controls.enable?.dirty && editForm.controls.enable?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.enable?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.meterRule.createdBy" for="field_createdBy">Created By</label>
+            <input type="text" class="form-control" name="createdBy" id="field_createdBy"
+                [(ngModel)]="meterRule.createdBy" required maxlength="20" />
+            <div [hidden]="!(editForm.controls.createdBy?.dirty && editForm.controls.createdBy?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.createdBy?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.createdBy?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 20 }">
+                   This field cannot be longer than 20 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.meterRule.createTime" for="field_createTime">Create Time</label>
+            <div class="d-flex">
+                <input id="field_createTime" type="datetime-local" class="form-control" name="createTime" [(ngModel)]="meterRule.createTime"
+                required  />
+            </div>
+            <div [hidden]="!(editForm.controls.createTime?.dirty && editForm.controls.createTime?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.createTime?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.createTime?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                    This field should be a date and time.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.meterRule.updatedBy" for="field_updatedBy">Updated By</label>
+            <input type="text" class="form-control" name="updatedBy" id="field_updatedBy"
+                [(ngModel)]="meterRule.updatedBy" required maxlength="20" />
+            <div [hidden]="!(editForm.controls.updatedBy?.dirty && editForm.controls.updatedBy?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.updatedBy?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.updatedBy?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 20 }">
+                   This field cannot be longer than 20 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.meterRule.updateTime" for="field_updateTime">Update Time</label>
+            <div class="d-flex">
+                <input id="field_updateTime" type="datetime-local" class="form-control" name="updateTime" [(ngModel)]="meterRule.updateTime"
+                required  />
+            </div>
+            <div [hidden]="!(editForm.controls.updateTime?.dirty && editForm.controls.updateTime?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.updateTime?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.updateTime?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                    This field should be a date and time.
+                </small>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

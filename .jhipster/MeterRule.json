@@ -1,0 +1,98 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "meterCode",
+            "javadoc": "设备编码",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 64
+        },
+        {
+            "fieldName": "meterName",
+            "javadoc": "设备名称",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 200
+        },
+        {
+            "fieldName": "ruleCode",
+            "javadoc": "规则编码",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 64
+        },
+        {
+            "fieldName": "ruleName",
+            "javadoc": "规则名称",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 200
+        },
+        {
+            "fieldName": "enable",
+            "javadoc": "是否有效",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "createdBy",
+            "javadoc": "创建人",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 20
+        },
+        {
+            "fieldName": "createTime",
+            "javadoc": "创建时间",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "updatedBy",
+            "javadoc": "修改人",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 20
+        },
+        {
+            "fieldName": "updateTime",
+            "javadoc": "修改时间",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20171117012033",
+    "javadoc": "设备规则表\n@author youhong",
+    "entityTableName": "meter_rule",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "microserviceName": "EmCloudArc"
+}

@@ -1,0 +1,33 @@
+{
+    "emCloudWebApp": {
+        "meterRule" : {
+            "home": {
+                "title": "Meter Rules",
+                "createLabel": "创建新 Meter Rule",
+                "createOrEditLabel": "创建或编辑 Meter Rule"
+            },
+            "delete": {
+                "question": "你确定要删除 Meter Rule {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Meter Rule"
+            },
+            "meterCode": "Meter Code",
+            "meterName": "Meter Name",
+            "ruleCode": "Rule Code",
+            "ruleName": "Rule Name",
+            "enable": "Enable",
+            "createdBy": "Created By",
+            "createTime": "Create Time",
+            "updatedBy": "Updated By",
+            "updateTime": "Update Time"
+        }
+    },
+    "emCloudArcApp": {
+        "meterRule" : {
+            "created": "Meter Rule {{ param }} 创建成功",
+            "updated": "Meter Rule {{ param }} 更新成功",
+            "deleted": "Meter Rule {{ param }} 删除成功"
+        }
+    }
+}

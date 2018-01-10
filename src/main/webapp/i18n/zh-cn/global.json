@@ -19,6 +19,9 @@
                 "meterCategoryInfo": "Meter Category Info",
                 "meterInfo": "Meter Info",
                 "multiwaySwitchInfo": "Multiway Switch Info",
+                "alarmRule": "Alarm Rule",
+                "ruleAttributes": "Rule Attributes",
+                "meterRule": "Meter Rule",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

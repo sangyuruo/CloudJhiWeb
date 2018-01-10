@@ -1,0 +1,83 @@
+<div>
+    <h2>
+        <span jhiTranslate="emCloudWebApp.ruleAttributes.home.title">Rule Attributes</span>
+        <button class="btn btn-primary float-right jh-create-entity create-rule-attributes" [routerLink]="['/', { outlets: { popup: ['rule-attributes-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="emCloudWebApp.ruleAttributes.home.createLabel">
+            Create new Rule Attributes
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="ruleAttributes">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="ruleCode"><span jhiTranslate="emCloudWebApp.ruleAttributes.ruleCode">Rule Code</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="attributeName"><span jhiTranslate="emCloudWebApp.ruleAttributes.attributeName">Attribute Name</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="attributeValue"><span jhiTranslate="emCloudWebApp.ruleAttributes.attributeValue">Attribute Value</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="createdBy"><span jhiTranslate="emCloudWebApp.ruleAttributes.createdBy">Created By</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="createTime"><span jhiTranslate="emCloudWebApp.ruleAttributes.createTime">Create Time</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="updatedBy"><span jhiTranslate="emCloudWebApp.ruleAttributes.updatedBy">Updated By</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="updateTime"><span jhiTranslate="emCloudWebApp.ruleAttributes.updateTime">Update Time</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="alarmRule.id"><span jhiTranslate="emCloudWebApp.ruleAttributes.alarmRule">Alarm Rule</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let ruleAttributes of ruleAttributes ;trackBy: trackId">
+                <td><a [routerLink]="['../rule-attributes', ruleAttributes.id ]">{{ruleAttributes.id}}</a></td>
+                <td>{{ruleAttributes.ruleCode}}</td>
+                <td>{{ruleAttributes.attributeName}}</td>
+                <td>{{ruleAttributes.attributeValue}}</td>
+                <td>{{ruleAttributes.createdBy}}</td>
+                <td>{{ruleAttributes.createTime | date:'medium'}}</td>
+                <td>{{ruleAttributes.updatedBy}}</td>
+                <td>{{ruleAttributes.updateTime | date:'medium'}}</td>
+                <td>
+                    <div *ngIf="ruleAttributes.alarmRule">
+                        <a [routerLink]="['../alarm-rule', ruleAttributes.alarmRule?.id ]" >{{ruleAttributes.alarmRule?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../rule-attributes', ruleAttributes.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'rule-attributes/'+ ruleAttributes.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'rule-attributes/'+ ruleAttributes.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+        <!-- Pager is not implemented yet, so this is normal pagination instead -->
+        <div *ngIf="ruleAttributes && ruleAttributes.length">
+            <div class="row justify-content-center">
+                <jhi-item-count [page]="page" [total]="queryCount" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+            </div>
+            <div class="row justify-content-center">
+                <ngb-pagination [collectionSize]="totalItems" [maxSize]="5" [(page)]="page"  (pageChange)="loadPage(page)"></ngb-pagination>
+            </div>
+        </div>
+</div>

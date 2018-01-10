@@ -1,0 +1,55 @@
+
+<div *ngIf="ruleAttributes">
+    <h2><span jhiTranslate="emCloudWebApp.ruleAttributes.detail.title">Rule Attributes</span> {{ruleAttributes.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="emCloudWebApp.ruleAttributes.ruleCode">Rule Code</span></dt>
+        <dd>
+            <span>{{ruleAttributes.ruleCode}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.ruleAttributes.attributeName">Attribute Name</span></dt>
+        <dd>
+            <span>{{ruleAttributes.attributeName}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.ruleAttributes.attributeValue">Attribute Value</span></dt>
+        <dd>
+            <span>{{ruleAttributes.attributeValue}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.ruleAttributes.createdBy">Created By</span></dt>
+        <dd>
+            <span>{{ruleAttributes.createdBy}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.ruleAttributes.createTime">Create Time</span></dt>
+        <dd>
+            <span>{{ruleAttributes.createTime | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.ruleAttributes.updatedBy">Updated By</span></dt>
+        <dd>
+            <span>{{ruleAttributes.updatedBy}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.ruleAttributes.updateTime">Update Time</span></dt>
+        <dd>
+            <span>{{ruleAttributes.updateTime | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.ruleAttributes.alarmRule">Alarm Rule</span></dt>
+        <dd>
+            <div *ngIf="ruleAttributes.alarmRule">
+                <a [routerLink]="['/alarm-rule', ruleAttributes.alarmRule?.id]">{{ruleAttributes.alarmRule?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'rule-attributes/'+ ruleAttributes.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

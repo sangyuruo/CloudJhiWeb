@@ -1,0 +1,85 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "alarmRule",
+            "otherEntityName": "alarmRule",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "ruleCode",
+            "javadoc": "规则编码",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 64
+        },
+        {
+            "fieldName": "attributeName",
+            "javadoc": "属性名",
+            "fieldType": "Double",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "attributeValue",
+            "javadoc": "属性值",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 100
+        },
+        {
+            "fieldName": "createdBy",
+            "javadoc": "创建人",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 20
+        },
+        {
+            "fieldName": "createTime",
+            "javadoc": "创建时间",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "updatedBy",
+            "javadoc": "修改人",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 20
+        },
+        {
+            "fieldName": "updateTime",
+            "javadoc": "修改时间",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20171117012032",
+    "javadoc": "规则属性表\n@author youhong",
+    "entityTableName": "rule_attributes",
+    "dto": "no",
+    "pagination": "pager",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "microserviceName": "EmCloudArc"
+}

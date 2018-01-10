@@ -1,0 +1,32 @@
+{
+    "emCloudWebApp": {
+        "ruleAttributes" : {
+            "home": {
+                "title": "Rule Attributes",
+                "createLabel": "创建新 Rule Attributes",
+                "createOrEditLabel": "创建或编辑 Rule Attributes"
+            },
+            "delete": {
+                "question": "你确定要删除 Rule Attributes {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Rule Attributes"
+            },
+            "ruleCode": "Rule Code",
+            "attributeName": "Attribute Name",
+            "attributeValue": "Attribute Value",
+            "createdBy": "Created By",
+            "createTime": "Create Time",
+            "updatedBy": "Updated By",
+            "updateTime": "Update Time",
+            "alarmRule": "Alarm Rule"
+        }
+    },
+    "emCloudArcApp": {
+        "ruleAttributes" : {
+            "created": "Rule Attributes {{ param }} 创建成功",
+            "updated": "Rule Attributes {{ param }} 更新成功",
+            "deleted": "Rule Attributes {{ param }} 删除成功"
+        }
+    }
+}

@@ -12,6 +12,9 @@ import { EmCloudWebNotifyLogModule } from './notify-log/notify-log.module';
 import { EmCloudWebMeterCategoryInfoModule } from './meter-category-info/meter-category-info.module';
 import { EmCloudWebMeterInfoModule } from './meter-info/meter-info.module';
 import { EmCloudWebMultiwaySwitchInfoModule } from './multiway-switch-info/multiway-switch-info.module';
+import { EmCloudWebAlarmRuleModule } from './alarm-rule/alarm-rule.module';
+import { EmCloudWebRuleAttributesModule } from './rule-attributes/rule-attributes.module';
+import { EmCloudWebMeterRuleModule } from './meter-rule/meter-rule.module';
 /* jhipster-needle-add-entity-module-import - JHipster will add entity modules imports here */
 
 @NgModule({
@@ -28,6 +31,9 @@ import { EmCloudWebMultiwaySwitchInfoModule } from './multiway-switch-info/multi
         EmCloudWebMeterCategoryInfoModule,
         EmCloudWebMeterInfoModule,
         EmCloudWebMultiwaySwitchInfoModule,
+        EmCloudWebAlarmRuleModule,
+        EmCloudWebRuleAttributesModule,
+        EmCloudWebMeterRuleModule,
         /* jhipster-needle-add-entity-module - JHipster will add entity modules here */
     ],
     declarations: [],

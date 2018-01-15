@@ -51,7 +51,7 @@ currentAccount: any;
     }
 
     public navigate(){
-        this.router.navigate(['/tree_data']);
+        this.router.navigate(['/status/tree_data']);
     }
 
     loadAll() {
@@ -70,7 +70,7 @@ currentAccount: any;
         }
     }
     transition() {
-        this.router.navigate(['/company'], {queryParams:
+        this.router.navigate(['/status//tree_data'], {queryParams:
             {
                 page: this.page,
                 size: this.itemsPerPage,
@@ -82,7 +82,7 @@ currentAccount: any;
 
     clear() {
         this.page = 0;
-        this.router.navigate(['/company', {
+        this.router.navigate(['/status//tree_data', {
             page: this.page,
             sort: this.predicate + ',' + (this.reverse ? 'asc' : 'desc')
         }]);

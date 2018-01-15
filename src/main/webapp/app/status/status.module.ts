@@ -4,17 +4,17 @@ import { EmCloudWebSharedModule } from '../shared';
 
 import { HOME_ROUTE, StatusComponent } from './';
 import {TreeComponent} from "./tree/tree.component";
-import {CompanyResolvePagingParams} from "../entities/company/company.route";
 import {EasyUIModule} from "../easyui/components/easyui/easyui.module";
-// import {EmClouWebOUModule} from "./data/company.module";
+import {EmClouWebOUModule} from "./data/company.module";
 import {OuComponent} from "./data/company.component";
+import {CompanyResolvePagingParams} from "./data/company.route";
 
 @NgModule({
     imports: [
         EmCloudWebSharedModule,
         // EmClouWebOUModule,
         EasyUIModule,
-        RouterModule.forRoot([ HOME_ROUTE ], { useHash: true })
+        RouterModule.forRoot( HOME_ROUTE , { useHash: true })
     ],
     declarations: [
         OuComponent,

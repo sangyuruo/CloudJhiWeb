@@ -77,6 +77,14 @@
 .tree-file {
   background: url('images/tree_icons.png') no-repeat -240px 0;
 }
+
+.tree-folder-open {
+    background: url('images/tree_icons.png') no-repeat -144px 0;
+}
+.tree-folder {
+    background: url('images/tree_icons.png') no-repeat -128px 0;
+}
+
 .tree-loading {
   background: url('images/loading.gif') no-repeat center center;
 }

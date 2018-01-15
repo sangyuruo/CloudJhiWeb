@@ -2,14 +2,10 @@ import { Component } from '@angular/core';
 import '!style-loader!css-loader!../../easyui/themes/material/easyui.css';
 import '!style-loader!css-loader!../../easyui/themes/angular.css';
 import '!style-loader!css-loader!../../easyui/themes/icon.css';
-import {companyRoute} from "../data/company.route";
-import {Router} from "@angular/router";
-import {OuComponent} from "../data/company.component";
 
 @Component({
     selector: 'org-tree',
-    template: `
-        <h2>Basic Tree</h2>
+    template: `        
         <eui-tree [data]="data" [(selection)]="selection" (selectionChange)="onSelectionChange($event)"></eui-tree>
         <p *ngIf="selection">Selected: {{selection.text}}</p>
     `
@@ -22,46 +18,30 @@ export class TreeComponent {
 
     data: any[] = [{
         "id":1,
-        "text":"My Documents",
+        "text":"华翔能源科技",
         "children":[{
             "id":11,
-            "text":"Photos",
+            "text":"研发部",
             "state":"closed",
             "children":[{
                 "id":111,
-                "text":"Friend"
+                "text":"研发后端组"
             },{
                 "id":112,
-                "text":"Wife"
+                "text":"研发前端组"
             },{
                 "id":113,
-                "text":"Company"
+                "text":"研发测试组"
             }]
         },{
             "id":12,
-            "text":"Program Files",
-            "children":[{
-                "id":121,
-                "text":"Intel"
-            },{
-                "id":122,
-                "text":"Java"
-            },{
-                "id":123,
-                "text":"Microsoft Office"
-            },{
-                "id":124,
-                "text":"Games"
-            }]
+            "text":"综合部"
         },{
             "id":13,
-            "text":"index.html"
+            "text":"商务部"
         },{
             "id":14,
-            "text":"about.html"
-        },{
-            "id":15,
-            "text":"welcome.html"
+            "text":"硬件部"
         }]
     }];
 

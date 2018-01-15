@@ -25,6 +25,9 @@ import {
     ActiveMenuDirective,
     ErrorComponent
 } from './layouts';
+import {EasyUIModule} from "./easyui/components/easyui/easyui.module";
+import {EmCloudWebStatusModule} from "./status/status.module";
+
 
 @NgModule({
     imports: [
@@ -36,6 +39,8 @@ import {
         EmCloudWebAdminModule,
         EmCloudWebAccountModule,
         EmCloudWebEntityModule,
+        EmCloudWebStatusModule,
+        EasyUIModule,
         // jhipster-needle-angular-add-module JHipster will add new module here
     ],
     declarations: [

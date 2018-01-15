@@ -20,7 +20,10 @@
         "mobile": false,
         "styles": [
             "content/scss/vendor.scss",
-            "content/scss/global.scss"
+            "content/scss/global.scss",
+            "content/scss/themes/material/easyui.css",
+            "content/scss/themes/angular.css",
+            "content/scss/themes/icon.css"
         ],
         "scripts": []
     }],

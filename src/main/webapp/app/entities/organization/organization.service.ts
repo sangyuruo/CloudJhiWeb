@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import {BaseRequestOptions, URLSearchParams , Http, Response} from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 
 import { JhiDateUtils } from 'ng-jhipster';
@@ -43,6 +43,23 @@ export class OrganizationService {
             .map((res: Response) => this.convertResponse(res));
     }
 
+    queryByCompanyCode(orgCode: any): Observable<any> {
+        const options: BaseRequestOptions = new BaseRequestOptions();
+        const params: URLSearchParams = new URLSearchParams();
+        options.params = params;
+        params.set('orgCode', orgCode);
+        return this.http.get(this.resourceUrl+'/tree', options )
+            .map((res: Response) => res.json());
+    }
+    // private convertResponse2(res: Response): any {
+    //     const jsonResponse = res.json();
+    //     const result = [];
+    //     for (let i = 0; i < jsonResponse.length; i++) {
+    //         result.push({'id': jsonResponse[i].id,'orgCode':jsonResponse[i].orgCode,'text':jsonResponse[i].orgName});
+    //     }
+    //     return result;
+    // }
+
     delete(id: number): Observable<Response> {
         return this.http.delete(`${this.resourceUrl}/${id}`);
     }
@@ -55,6 +72,7 @@ export class OrganizationService {
         }
         return new ResponseWrapper(res.headers, result, res.status);
     }
+
 
     /**
      * Convert a returned JSON object to Organization.

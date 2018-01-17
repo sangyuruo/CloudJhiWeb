@@ -27,6 +27,7 @@ import {
 } from './layouts';
 import {EasyUIModule} from "./easyui/components/easyui/easyui.module";
 import {EmCloudWebStatusModule} from "./status/status.module";
+import {EmCloudMeterModule} from "./meter/meter.module";
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import {EmCloudWebStatusModule} from "./status/status.module";
         EmCloudWebAccountModule,
         EmCloudWebEntityModule,
         EmCloudWebStatusModule,
+        EmCloudMeterModule,
         EasyUIModule,
         // jhipster-needle-angular-add-module JHipster will add new module here
     ],

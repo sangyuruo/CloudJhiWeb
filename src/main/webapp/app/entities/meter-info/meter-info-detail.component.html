@@ -1,107 +1,119 @@
-
-<div *ngIf="meterInfo">
-    <h2><span jhiTranslate="emCloudWebApp.meterInfo.detail.title">Meter Info</span> {{meterInfo.id}}</h2>
-    <hr>
-    <jhi-alert-error></jhi-alert-error>
-    <dl class="row-md jh-entity-details">
-        <dt><span jhiTranslate="emCloudWebApp.meterInfo.meterCode">Meter Code</span></dt>
-        <dd>
-            <span>{{meterInfo.meterCode}}</span>
-        </dd>
-        <dt><span jhiTranslate="emCloudWebApp.meterInfo.meterName">Meter Name</span></dt>
-        <dd>
-            <span>{{meterInfo.meterName}}</span>
-        </dd>
-        <dt><span jhiTranslate="emCloudWebApp.meterInfo.registerCode">Register Code</span></dt>
-        <dd>
-            <span>{{meterInfo.registerCode}}</span>
-        </dd>
-        <dt><span jhiTranslate="emCloudWebApp.meterInfo.addressCode">Address Code</span></dt>
-        <dd>
-            <span>{{meterInfo.addressCode}}</span>
-        </dd>
-        <dt><span jhiTranslate="emCloudWebApp.meterInfo.organizationCode">Organization Code</span></dt>
-        <dd>
-            <span>{{meterInfo.organizationCode}}</span>
-        </dd>
-        <dt><span jhiTranslate="emCloudWebApp.meterInfo.companyCode">Company Code</span></dt>
-        <dd>
-            <span>{{meterInfo.companyCode}}</span>
-        </dd>
-        <dt><span jhiTranslate="emCloudWebApp.meterInfo.comPointCode">Com Point Code</span></dt>
-        <dd>
-            <span>{{meterInfo.comPointCode}}</span>
-        </dd>
-        <dt><span jhiTranslate="emCloudWebApp.meterInfo.meterTypeCode">Meter Type Code</span></dt>
-        <dd>
-            <span>{{meterInfo.meterTypeCode}}</span>
-        </dd>
-        <dt><span jhiTranslate="emCloudWebApp.meterInfo.meterType">Meter Type</span></dt>
-        <dd>
-            <span>{{meterInfo.meterType}}</span>
-        </dd>
-        <dt><span jhiTranslate="emCloudWebApp.meterInfo.startOffset">Start Offset</span></dt>
-        <dd>
-            <span>{{meterInfo.startOffset}}</span>
-        </dd>
-        <dt><span jhiTranslate="emCloudWebApp.meterInfo.numberOfRegisters">Number Of Registers</span></dt>
-        <dd>
-            <span>{{meterInfo.numberOfRegisters}}</span>
-        </dd>
-        <dt><span jhiTranslate="emCloudWebApp.meterInfo.controlAddress">Control Address</span></dt>
-        <dd>
-            <span>{{meterInfo.controlAddress}}</span>
-        </dd>
-        <dt><span jhiTranslate="emCloudWebApp.meterInfo.createdBy">Created By</span></dt>
-        <dd>
-            <span>{{meterInfo.createdBy}}</span>
-        </dd>
-        <dt><span jhiTranslate="emCloudWebApp.meterInfo.createTime">Create Time</span></dt>
-        <dd>
-            <span>{{meterInfo.createTime | date:'medium'}}</span>
-        </dd>
-        <dt><span jhiTranslate="emCloudWebApp.meterInfo.updatedBy">Updated By</span></dt>
-        <dd>
-            <span>{{meterInfo.updatedBy}}</span>
-        </dd>
-        <dt><span jhiTranslate="emCloudWebApp.meterInfo.updateTime">Update Time</span></dt>
-        <dd>
-            <span>{{meterInfo.updateTime | date:'medium'}}</span>
-        </dd>
-        <dt><span jhiTranslate="emCloudWebApp.meterInfo.controlCommands">Control Commands</span></dt>
-        <dd>
-            <span>{{meterInfo.controlCommands}}</span>
-        </dd>
-        <dt><span jhiTranslate="emCloudWebApp.meterInfo.bigEndian">Big Endian</span></dt>
-        <dd>
-            <span>{{meterInfo.bigEndian}}</span>
-        </dd>
-        <dt><span jhiTranslate="emCloudWebApp.meterInfo.allowDuplicate">Allow Duplicate</span></dt>
-        <dd>
-            <span>{{meterInfo.allowDuplicate}}</span>
-        </dd>
-        <dt><span jhiTranslate="emCloudWebApp.meterInfo.calculates">Calculates</span></dt>
-        <dd>
-            <span>{{meterInfo.calculates}}</span>
-        </dd>
-        <dt><span jhiTranslate="emCloudWebApp.meterInfo.meterCategoryInfo">Meter Category Info</span></dt>
-        <dd>
-            <div *ngIf="meterInfo.meterCategoryInfo">
-                <a [routerLink]="['/meter-category-info', meterInfo.meterCategoryInfo?.id]">{{meterInfo.meterCategoryInfo?.id}}</a>
-            </div>
-        </dd>
-    </dl>
-
-    <button type="submit"
-            (click)="previousState()"
-            class="btn btn-info">
-        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+            (click)="clear()">&times;
     </button>
+</div>
+<div class="modal-body">
+    <div *ngIf="meterInfo">
+        <h2><span jhiTranslate="emCloudWebApp.meterInfo.detail.title">Meter Info</span> {{meterInfo.id}}</h2>
+        <hr>
+        <jhi-alert-error></jhi-alert-error>
+        <dl class="row-md jh-entity-details">
+            <dt><span jhiTranslate="emCloudWebApp.meterInfo.meterCode">Meter Code</span></dt>
+            <dd>
+                <span>{{meterInfo.meterCode}}</span>
+            </dd>
+            <dt><span jhiTranslate="emCloudWebApp.meterInfo.meterName">Meter Name</span></dt>
+            <dd>
+                <span>{{meterInfo.meterName}}</span>
+            </dd>
+            <dt><span jhiTranslate="emCloudWebApp.meterInfo.registerCode">Register Code</span></dt>
+            <dd>
+                <span>{{meterInfo.registerCode}}</span>
+            </dd>
+            <dt><span jhiTranslate="emCloudWebApp.meterInfo.addressCode">Address Code</span></dt>
+            <dd>
+                <span>{{meterInfo.addressCode}}</span>
+            </dd>
+            <dt><span jhiTranslate="emCloudWebApp.meterInfo.organizationCode">Organization Code</span></dt>
+            <dd>
+                <span>{{meterInfo.organizationCode}}</span>
+            </dd>
+            <dt><span jhiTranslate="emCloudWebApp.meterInfo.companyCode">Company Code</span></dt>
+            <dd>
+                <span>{{meterInfo.companyCode}}</span>
+            </dd>
+            <dt><span jhiTranslate="emCloudWebApp.meterInfo.comPointCode">Com Point Code</span></dt>
+            <dd>
+                <span>{{meterInfo.comPointCode}}</span>
+            </dd>
+            <dt><span jhiTranslate="emCloudWebApp.meterInfo.meterTypeCode">Meter Type Code</span></dt>
+            <dd>
+                <span>{{meterInfo.meterTypeCode}}</span>
+            </dd>
+            <dt><span jhiTranslate="emCloudWebApp.meterInfo.meterType">Meter Type</span></dt>
+            <dd>
+                <span>{{meterInfo.meterType}}</span>
+            </dd>
+            <dt><span jhiTranslate="emCloudWebApp.meterInfo.startOffset">Start Offset</span></dt>
+            <dd>
+                <span>{{meterInfo.startOffset}}</span>
+            </dd>
+            <dt><span jhiTranslate="emCloudWebApp.meterInfo.numberOfRegisters">Number Of Registers</span></dt>
+            <dd>
+                <span>{{meterInfo.numberOfRegisters}}</span>
+            </dd>
+            <dt><span jhiTranslate="emCloudWebApp.meterInfo.controlAddress">Control Address</span></dt>
+            <dd>
+                <span>{{meterInfo.controlAddress}}</span>
+            </dd>
+            <dt><span jhiTranslate="emCloudWebApp.meterInfo.createdBy">Created By</span></dt>
+            <dd>
+                <span>{{meterInfo.createdBy}}</span>
+            </dd>
+            <dt><span jhiTranslate="emCloudWebApp.meterInfo.createTime">Create Time</span></dt>
+            <dd>
+                <span>{{meterInfo.createTime }}</span>
+                <!--| date:'medium'-->
+            </dd>
+            <dt><span jhiTranslate="emCloudWebApp.meterInfo.updatedBy">Updated By</span></dt>
+            <dd>
+                <span>{{meterInfo.updatedBy}}</span>
+            </dd>
+            <dt><span jhiTranslate="emCloudWebApp.meterInfo.updateTime">Update Time</span></dt>
+            <dd>
+                <span>{{meterInfo.updateTime }}</span>
+            </dd>
+            <dt><span jhiTranslate="emCloudWebApp.meterInfo.controlCommands">Control Commands</span></dt>
+            <dd>
+                <span>{{meterInfo.controlCommands}}</span>
+            </dd>
+            <dt><span jhiTranslate="emCloudWebApp.meterInfo.bigEndian">Big Endian</span></dt>
+            <dd>
+                <span>{{meterInfo.bigEndian}}</span>
+            </dd>
+            <dt><span jhiTranslate="emCloudWebApp.meterInfo.allowDuplicate">Allow Duplicate</span></dt>
+            <dd>
+                <span>{{meterInfo.allowDuplicate}}</span>
+            </dd>
+            <dt><span jhiTranslate="emCloudWebApp.meterInfo.calculates">Calculates</span></dt>
+            <dd>
+                <span>{{meterInfo.calculates}}</span>
+            </dd>
+            <dt><span jhiTranslate="emCloudWebApp.meterInfo.meterCategoryInfo">Meter Category Info</span></dt>
+            <dd>
+                <div *ngIf="meterInfo.meterCategoryInfo">
+                    <a [routerLink]="['/meter-category-info', meterInfo.meterCategoryInfo?.id]">{{meterInfo.meterCategoryInfo?.id}}</a>
+                </div>
+            </dd>
+        </dl>
 
-    <button type="button"
-            [routerLink]="['/', { outlets: { popup: 'meter-info/'+ meterInfo.id + '/edit'} }]"
-            replaceUrl="true"
-            class="btn btn-primary">
-        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+        <button type="submit"
+                (click)="previousState()"
+                class="btn btn-info">
+            <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+        </button>
+
+        <button type="button"
+                [routerLink]="['/', { outlets: { popup: 'meter-info/'+ meterInfo.id + '/edit'} }]"
+                replaceUrl="true"
+                class="btn btn-primary">
+            <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+        </button>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+        <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
     </button>
 </div>

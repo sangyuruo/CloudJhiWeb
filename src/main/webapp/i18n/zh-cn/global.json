@@ -5,6 +5,7 @@
         "menu": {
             "home": "首页",
             "tree": "组织",
+            "meter": "设备管理",
             "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
             "entities": {
                 "main": "数据",

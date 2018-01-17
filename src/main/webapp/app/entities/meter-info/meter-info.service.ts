@@ -46,8 +46,8 @@ export class MeterInfoService {
     queryByOrgCode(req?: any): Observable<ResponseWrapper> {
         const companyCode = req.companyCode;
         const orgCode = req.orgCode;
-
-        return this.http.get(this.resourceUrl+'/byou/' + companyCode + '/' + orgCode  )
+        const options = createRequestOption(req);
+        return this.http.get(this.resourceUrl+'/byou/' + companyCode + '/' + orgCode ,options )
             .map((res: Response) => this.convertResponse(res));
     }
 

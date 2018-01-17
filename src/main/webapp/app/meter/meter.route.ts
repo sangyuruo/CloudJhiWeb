@@ -1,15 +1,15 @@
-import { Injectable } from '@angular/core';
-import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot, Routes } from '@angular/router';
+import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot, Routes} from '@angular/router';
 
-import { UserRouteAccessService } from '../../shared';
-import { JhiPaginationUtil } from 'ng-jhipster';
+import {MeterComponent} from './';
+import {Injectable} from "@angular/core";
+import {JhiPaginationUtil} from "ng-jhipster";
 
-import { OuComponent } from './company.component';
 
 @Injectable()
 export class CompanyResolvePagingParams implements Resolve<any> {
 
-    constructor(private paginationUtil: JhiPaginationUtil) {}
+    constructor(private paginationUtil: JhiPaginationUtil) {
+    }
 
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
         const page = route.queryParams['page'] ? route.queryParams['page'] : '1';
@@ -18,21 +18,20 @@ export class CompanyResolvePagingParams implements Resolve<any> {
             page: this.paginationUtil.parsePage(page),
             predicate: this.paginationUtil.parsePredicate(sort),
             ascending: this.paginationUtil.parseAscending(sort)
-      };
+        };
     }
 }
 
-export const companyRoute: Routes = [
+export const HOME_ROUTE: Routes = [
     {
-        path: 'tree_data',
-        component: OuComponent,
+        path: 'meter',
+        component: MeterComponent,
         resolve: {
             'pagingParams': CompanyResolvePagingParams
         },
         data: {
-            authorities: ['ROLE_USER'],
-            pageTitle: 'emCloudWebApp.company.home.title'
+            authorities: [],
+            pageTitle: 'home.title'
         },
-        canActivate: [UserRouteAccessService]
-    },
+    }
 ];

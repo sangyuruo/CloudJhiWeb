@@ -50,7 +50,6 @@ export class OrganizationService {
         // params.set('orgCode', orgCode);
         // return this.http.get(this.resourceUrl+'/tree', options )
         //     .map((res: Response) => res.json());
-
         return this.http.get(this.resourceUrl+'/tree/' + orgCode  )
             .map((res: Response) => res.json());
     }

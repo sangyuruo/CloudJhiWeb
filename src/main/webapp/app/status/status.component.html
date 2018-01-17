@@ -114,8 +114,10 @@
                         <td class="text-right">
                             <div class="btn-group flex-btn-group-container">
                                 <button type="submit"
-                                        [routerLink]="['../meter-info', meterInfo.id ]"
+                                        [routerLink]="['/', { outlets: { popup: 'meter-info/'+ meterInfo.id} }]"
+                                        replaceUrl="true"
                                         class="btn btn-info btn-sm">
+                                    <!--[routerLink]="['../meter-info', meterInfo.id ]"-->
                                     <span class="fa fa-eye"></span>
                                     <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
                                 </button>

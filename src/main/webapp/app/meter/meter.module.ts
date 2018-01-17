@@ -1,10 +1,12 @@
-import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA, enableProdMode, NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
 import {EmCloudWebSharedModule} from '../shared';
 
-import {HOME_ROUTE, StatusComponent} from './';
+import {HOME_ROUTE, MeterComponent} from './';
 import {EasyUIModule} from "../easyui/components/easyui/easyui.module";
-import {CompanyResolvePagingParams} from "./status.route";
+import {CompanyResolvePagingParams} from "./meter.route";
+
+enableProdMode();
 
 @NgModule({
     imports: [
@@ -14,7 +16,7 @@ import {CompanyResolvePagingParams} from "./status.route";
         RouterModule.forRoot( HOME_ROUTE , { useHash: true })
     ],
     declarations: [
-        StatusComponent,
+        MeterComponent,
     ],
     entryComponents: [
     ],
@@ -23,5 +25,5 @@ import {CompanyResolvePagingParams} from "./status.route";
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class EmCloudWebStatusModule {}
+export class EmCloudMeterModule {}
 

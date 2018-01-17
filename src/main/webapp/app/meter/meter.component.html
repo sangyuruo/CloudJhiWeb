@@ -1,0 +1,68 @@
+<div class="row">
+    <div class="col-xxxl-3 col-xxl-4 col-lg-3 col-md-6">
+        <eui-tree [data]="treedata" [(selection)]="selection" (selectionChange)="onSelectionChange($event)"
+                  (nodeExpand)="onNodeExpand($event)"></eui-tree>
+        <p *ngIf="selection">Selected: {{selection.text}}</p>
+    </div>
+
+    <div class="col-xxxl-9 col-xxl-8 col-lg-9 col-md-6">
+        <eui-datagrid style="height:250px"
+                      [pagination]="true"
+                      [lazy]="true"
+                      [data]="data"
+                      [total]="total"
+                      [pageNumber]="pageNumber"
+                      [pageSize]="pageSize"
+                      [pagePosition]="pagePosition"
+                      [loading]="loading"
+                      (pageChange)="onPageChange($event)">
+            <eui-grid-column [expander]="true" width="30"></eui-grid-column>
+            <eui-grid-column field="id" title="Inv No"></eui-grid-column>
+            <eui-grid-column field="meterName" title="meterName"></eui-grid-column>
+            <eui-grid-column field="registerCode" title="registerCode" align="right"></eui-grid-column>
+            <eui-grid-column field="comPointCode" title="comPointCode" align="right"></eui-grid-column>
+            <eui-grid-column field="meterTypeCode" title="meterTypeCode" align="right"></eui-grid-column>
+            <eui-grid-column field="meterType" title="meterType"></eui-grid-column>
+            <eui-grid-column field="startOffset" title="startOffset"></eui-grid-column>
+            <eui-grid-column field="numberOfRegisters" title="numberOfRegisters"></eui-grid-column>
+            <eui-grid-column field="controlAddress" title="controlAddress"></eui-grid-column>
+            <eui-grid-column title="Commands" align="center" width="100">
+                <ng-template euiCellTemplate let-row>
+                    <eui-linkbutton btnCls="c5"
+                                    [routerLink]="['/', { outlets: { popup: 'meter-info/'+ row.id + '/edit'} }]"
+                                    replaceUrl="true" >Edit</eui-linkbutton>
+                    <eui-linkbutton btnCls="c1"
+                                    [routerLink]="['/', { outlets: { popup: 'meter-info/'+ row.id + '/delete'} }]"
+                                    replaceUrl="true" >Delete</eui-linkbutton>
+                </ng-template>
+            </eui-grid-column>
+            <ng-template euiDetailTemplate let-row>
+                <div class="item f-row">
+                    <div><img class="item-img" src="https://www.jeasyui.com/tutorial/datagrid/images/{{row.itemid}}.png"></div>
+                    <div class="f-column">
+                        <div class="item-desp f-full">meterCode: <span>{{row.meterCode}}</span></div>
+                        <div class="item-desp f-full">meterName: <span>{{row.meterName}}</span></div>
+                        <div class="item-desp f-full">registerCode: <span>{{row.registerCode}}</span></div>
+                        <div class="item-desp f-full">addressCode: <span>{{row.addressCode}}</span></div>
+                        <div class="item-desp f-full">organizationCode: <span>{{row.organizationCode}}</span></div>
+                        <div class="item-desp f-full">companyCode: <span>{{row.companyCode}}</span></div>
+                        <div class="item-desp f-full">comPointCode: <span>{{row.comPointCode}}</span></div>
+                        <div class="item-desp f-full">meterTypeCode: <span>{{row.meterTypeCode}}</span></div>
+                        <div class="item-desp f-full">meterType: <span>{{row.meterType}}</span></div>
+                        <div class="item-desp f-full">startOffset: <span>{{row.startOffset}}</span></div>
+                        <div class="item-desp f-full">numberOfRegisters: <span>{{row.numberOfRegisters}}</span></div>
+                        <div class="item-desp f-full">controlAddress: <span>{{row.controlAddress}}</span></div>
+                        <div class="item-desp f-full">createdBy: <span>{{row.createdBy}}</span></div>
+                        <div class="item-desp f-full">createTime: <span>{{row.createTime}}</span></div>
+                        <div class="item-desp f-full">updatedBy: <span>{{row.updatedBy}}</span></div>
+                        <div class="item-desp f-full">updateTime: <span>{{row.updateTime}}</span></div>
+                        <div class="item-desp f-full">controlCommands: <span>{{row.controlCommands}}</span></div>
+                        <div class="item-desp f-full">bigEndian: <span>{{row.bigEndian}}</span></div>
+                        <div class="item-desp f-full">allowDuplicate: <span>{{row.allowDuplicate}}</span></div>
+                        <div class="item-desp f-full">calculates: <span>{{row.calculates}}</span></div>
+                    </div>
+                </div>
+            </ng-template>
+        </eui-datagrid>
+    </div>
+</div>

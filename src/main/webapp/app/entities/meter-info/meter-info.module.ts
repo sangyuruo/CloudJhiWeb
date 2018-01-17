@@ -15,6 +15,7 @@ import {
     meterInfoPopupRoute,
     MeterInfoResolvePagingParams,
 } from './';
+import {MeterInfoDetailPopupComponent} from "./meter-info-detail.component";
 
 const ENTITY_STATES = [
     ...meterInfoRoute,
@@ -28,8 +29,9 @@ const ENTITY_STATES = [
     ],
     declarations: [
         MeterInfoComponent,
-        MeterInfoDetailComponent,
         MeterInfoDialogComponent,
+        MeterInfoDetailComponent,
+        MeterInfoDetailPopupComponent,
         MeterInfoDeleteDialogComponent,
         MeterInfoPopupComponent,
         MeterInfoDeletePopupComponent,
@@ -38,6 +40,8 @@ const ENTITY_STATES = [
         MeterInfoComponent,
         MeterInfoDialogComponent,
         MeterInfoPopupComponent,
+        MeterInfoDetailComponent,
+        MeterInfoDetailPopupComponent,
         MeterInfoDeleteDialogComponent,
         MeterInfoDeletePopupComponent,
     ],

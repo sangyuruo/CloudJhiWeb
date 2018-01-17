@@ -1,0 +1,87 @@
+[
+    {
+        "id": 3,
+        "text": "华翔翔能",
+        "orgCode": "01",
+        "children": [
+            {
+                "id": 2,
+                "text": "研发部",
+                "orgCode": "0101",
+                "children": [
+                    {
+                        "id": 5,
+                        "text": "研发前端组",
+                        "orgCode": "010101",
+                        "children": [
+                            {
+                                "id": 20,
+                                "text": "阿紫",
+                                "orgCode": "01010101"
+                            }
+                        ]
+                    },
+                    {
+                        "id": 6,
+                        "text": "研发后端组",
+                        "orgCode": "010102"
+                    }
+                ]
+            },
+            {
+                "id": 7,
+                "text": "综合部",
+                "orgCode": "0102"
+            },
+            {
+                "id": 8,
+                "text": "商务部",
+                "orgCode": "0103"
+            },
+            {
+                "id": 9,
+                "text": "硬件部",
+                "orgCode": "0104"
+            }
+        ]
+    },
+    {
+        "id": 25,
+        "text": "学院部",
+        "orgCode": "02",
+        "children": [
+            {
+                "id": 24,
+                "text": "学院1楼",
+                "orgCode": "0201",
+                "children": [
+                    {
+                        "id": 26,
+                        "text": "学院1楼1室",
+                        "orgCode": "020101"
+                    },
+                    {
+                        "id": 27,
+                        "text": "学院1楼2室",
+                        "orgCode": "020102"
+                    }
+                ]
+            },
+            {
+                "id": 28,
+                "text": "学院2楼",
+                "orgCode": "0202"
+            },
+            {
+                "id": 29,
+                "text": "学院3楼",
+                "orgCode": "0203"
+            },
+            {
+                "id": 30,
+                "text": "学院4楼",
+                "orgCode": "0204"
+            }
+        ]
+    }
+]

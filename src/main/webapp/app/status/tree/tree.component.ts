@@ -16,8 +16,9 @@ import {OrganizationService} from "../../entities/organization/organization.serv
 export class TreeComponent {
     selection: any = null;
     data: any[] = [{
-        "id": 1,
+        "id": 0,
         "text": "华翔能源科技",
+        "companyCode":"hx001",
         "state": "closed"
     }];
 
@@ -30,15 +31,13 @@ export class TreeComponent {
     onSelectionChange(event): void {
         console.log(event.id);
         console.log(event.orgCode);
-
-
     }
 
     onNodeExpand(event) {
         let node = event;
         console.log(event.orgCode);
-        if (!node.children) {
-            this.organizationService.queryByCompanyCode(event.orgCode).subscribe((data) => node.children = data);
+        if (node.id == 0 && !node.children) {
+            this.organizationService.queryByCompanyCode(event.companyCode).subscribe((data) => node.children = data );
         }
     }
 }

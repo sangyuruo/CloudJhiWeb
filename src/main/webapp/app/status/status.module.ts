@@ -1,12 +1,9 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { EmCloudWebSharedModule } from '../shared';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
+import {RouterModule} from '@angular/router';
+import {EmCloudWebSharedModule} from '../shared';
 
-import { HOME_ROUTE, StatusComponent } from './';
-import {TreeComponent} from "./tree/tree.component";
+import {HOME_ROUTE, StatusComponent} from './';
 import {EasyUIModule} from "../easyui/components/easyui/easyui.module";
-import {EmClouWebOUModule} from "./data/company.module";
-import {OuComponent} from "./data/company.component";
 import {CompanyResolvePagingParams} from "./data/company.route";
 
 @NgModule({
@@ -17,9 +14,7 @@ import {CompanyResolvePagingParams} from "./data/company.route";
         RouterModule.forRoot( HOME_ROUTE , { useHash: true })
     ],
     declarations: [
-        OuComponent,
         StatusComponent,
-        TreeComponent
     ],
     entryComponents: [
     ],

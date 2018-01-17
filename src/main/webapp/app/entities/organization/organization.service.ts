@@ -44,11 +44,14 @@ export class OrganizationService {
     }
 
     queryByCompanyCode(orgCode: any): Observable<any> {
-        const options: BaseRequestOptions = new BaseRequestOptions();
-        const params: URLSearchParams = new URLSearchParams();
-        options.params = params;
-        params.set('orgCode', orgCode);
-        return this.http.get(this.resourceUrl+'/tree', options )
+        // const options: BaseRequestOptions = new BaseRequestOptions();
+        // const params: URLSearchParams = new URLSearchParams();
+        // options.params = params;
+        // params.set('orgCode', orgCode);
+        // return this.http.get(this.resourceUrl+'/tree', options )
+        //     .map((res: Response) => res.json());
+
+        return this.http.get(this.resourceUrl+'/tree/' + orgCode  )
             .map((res: Response) => res.json());
     }
     // private convertResponse2(res: Response): any {

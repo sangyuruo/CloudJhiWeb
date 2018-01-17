@@ -43,6 +43,14 @@ export class MeterInfoService {
             .map((res: Response) => this.convertResponse(res));
     }
 
+    queryByOrgCode(req?: any): Observable<ResponseWrapper> {
+        const companyCode = req.companyCode;
+        const orgCode = req.orgCode;
+
+        return this.http.get(this.resourceUrl+'/byou/' + companyCode + '/' + orgCode  )
+            .map((res: Response) => this.convertResponse(res));
+    }
+
     delete(id: number): Observable<Response> {
         return this.http.delete(`${this.resourceUrl}/${id}`);
     }

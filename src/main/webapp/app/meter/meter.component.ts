@@ -35,7 +35,9 @@ export class MeterComponent implements OnInit {
     data = [];
     loading: boolean = false;
     pagePosition: string = 'bottom';
-
+    pageOptions = {
+        layout: ['links','info']
+    };
     ngOnInit(): void {
         this.loadDataPage(this.pageNumber, this.pageSize);
     }
@@ -49,6 +51,7 @@ export class MeterComponent implements OnInit {
         console.log(event.pageSize);
         this.loadDataPage(event.pageNumber, event.pageSize);
     }
+
 
     loadDataPage(pageNumber: number, pageSize: number) {
         this.loading = true;

@@ -35,6 +35,12 @@ public class AuthResource {
         this.authenticationService = authenticationService;
     }
 
+    @RequestMapping(value = "/prelogin", method = RequestMethod.GET)
+    @Timed
+    public String authenticate() {
+        return "success";
+    }
+
     /**
      * Authenticates a user setting the access and refresh token cookies.
      *

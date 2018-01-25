@@ -19,6 +19,7 @@ import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenCo
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 import org.springframework.security.web.csrf.CsrfFilter;
+import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
 import org.springframework.web.filter.CorsFilter;
 import org.springframework.web.client.RestTemplate;
 
@@ -40,6 +41,7 @@ public class MicroserviceSecurityConfiguration extends ResourceServerConfigurerA
         http
             .csrf()
             .ignoringAntMatchers("/h2-console/**")
+//            .csrfTokenRepository(new HttpSessionCsrfTokenRepository())
             .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
         .and()
             .addFilterBefore(corsFilter, CsrfFilter.class)

@@ -116,10 +116,10 @@ jhipster:
             backup-count: 1
     # CORS is only enabled by default with the "dev" profile, so BrowserSync can access the API
     cors:
-        allowed-origins: "*"
+        allowed-origins: "http://localhost:8100"
         allowed-methods: "*"
-        allowed-headers: "*"
-        exposed-headers: "Authorization"
+        allowed-headers: "X-XSRF-TOKEN,Authorization,Access-Control-Allow-Origin,Content-Type"
+        exposed-headers: "X-XSRF-TOKEN,Authorization,Access-Control-Allow-Origin,Content-Type"
         allow-credentials: true
         max-age: 1800
     security:

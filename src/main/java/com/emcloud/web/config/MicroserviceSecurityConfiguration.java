@@ -2,9 +2,9 @@ package com.emcloud.web.config;
 
 import com.emcloud.web.config.oauth2.OAuth2JwtAccessTokenConverter;
 import com.emcloud.web.config.oauth2.OAuth2Properties;
-import com.emcloud.web.security.oauth2.OAuth2SignatureVerifierClient;
 import com.emcloud.web.security.AuthoritiesConstants;
-
+import com.emcloud.web.security.MyCsrfFilter;
+import com.emcloud.web.security.oauth2.OAuth2SignatureVerifierClient;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.cloud.client.loadbalancer.RestTemplateCustomizer;
 import org.springframework.context.annotation.Bean;
@@ -18,10 +18,8 @@ import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
-import org.springframework.security.web.csrf.CsrfFilter;
-import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
-import org.springframework.web.filter.CorsFilter;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.filter.CorsFilter;
 
 @Configuration
 @EnableResourceServer
@@ -44,7 +42,7 @@ public class MicroserviceSecurityConfiguration extends ResourceServerConfigurerA
 //            .csrfTokenRepository(new HttpSessionCsrfTokenRepository())
             .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
         .and()
-            .addFilterBefore(corsFilter, CsrfFilter.class)
+            .addFilterBefore(corsFilter, MyCsrfFilter.class)
             .headers()
             .frameOptions()
             .disable()
